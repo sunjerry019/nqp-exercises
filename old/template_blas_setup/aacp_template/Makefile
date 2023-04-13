@@ -1,9 +1,9 @@
 # Define compiler and default c++-flags
-CC = g++-8
-CPPFLAGS =-Wall -g
-CPPFLAGS_EXTRA =
-LDFLAGS =-lpthread
-LDFLAGS_EXTRA =
+CC=g++-8
+CPPFLAGS=-Wall -g1 -m64 -std=c++17
+CPPFLAGS_EXTRA=
+LDFLAGS=-lpthread
+LDFLAGS_EXTRA=
 
 # Define additional search path for include files
 CPPFLAGS_EXTRA+=-I$(MKLROOT)/include/
@@ -21,10 +21,4 @@ main : main.o
 	$(CC) $(CPPFLAGS) $(CPPFLAGS_EXTRA) -o $@ $(LDFLAGS) $(LDFLAGS_EXTRA)
 
 main.o : main.cpp la_wrapper.h la_base_obj.h la_operations.h
-	$(CC) -c $(CPPFLAGS) $(CPPFLAGS_EXTRA) @(@:.o=.cpp) -o $@
-
-# # we have to hack into standard make behavior and overwrite default rules
-# %.o : %.c
-# # and then define our own rule
-# %.o : %.c $(DEPDIR)/%.d | $(DEPDIR)
-#         $(CC) $() $(OUTPUT_OPTION) $<
+	$(CC) -c $(CPPFLAGS) $(CPPFLAGS_EXTRA) $(@:.o=.cpp) -o $@
