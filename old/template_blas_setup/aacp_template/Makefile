@@ -18,7 +18,7 @@ LDFLAGS_EXTRA+=
 CPPFLAGS_EXTRA+=-I$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 main : main.o
-	$(CC) $(CPPFLAGS) $(CPPFLAGS_EXTRA) -o $@ $(LDFLAGS) $(LDFLAGS_EXTRA)
+	$(CC) $(CPPFLAGS) $(CPPFLAGS_EXTRA) $@.o -o $@ $(LDFLAGS) $(LDFLAGS_EXTRA)
 
 main.o : main.cpp la_wrapper.h la_base_obj.h la_operations.h
 	$(CC) -c $(CPPFLAGS) $(CPPFLAGS_EXTRA) $(@:.o=.cpp) -o $@
