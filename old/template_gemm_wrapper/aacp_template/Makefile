@@ -9,17 +9,11 @@ SRCS = $(wildcard *.cpp)
 CC=g++-8
 CPPFLAGS=-Wall -g1 -m64 -std=c++17
 CPPFLAGS_EXTRA=
-LDFLAGS=-lpthread
+LDFLAGS=
 LDFLAGS_EXTRA=
 
-# Define additional search path for include files
-CPPFLAGS_EXTRA+=-I$(MKLROOT)/include/
-
-# Define library search path
-LDFLAGS_EXTRA+=-L$(MKLROOT)/lib/ -L$(MKLROOT)/../../compiler/2021.1.1/mac/compiler/lib -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_avx2 -liomp5 -lm -ldl
-
-# Define explicit library identifiers
-LDFLAGS_EXTRA+=
+# include optional make.inc file
+include $(make_inc)
 
 # get directory Makefile is located in, we use it as default search path
 CPPFLAGS_EXTRA+=-I$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -36,7 +30,7 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 %.o : %.cpp
 %.o : %.cpp $(DEP_DIR)/%.d | $(DEP_DIR)
 	@echo building $@
-	$(CC) $(DEPFLAGS) $(CPPFLAGS) $(CPPFLAGS_EXTRA) -c $(LDFLAGS) $(LDFLAGS_EXTRA) $< 
+	$(CC) $(DEPFLAGS) $(CPPFLAGS) $(CPPFLAGS_EXTRA) -c $< 
 
 # define target rule for dependency directory
 $(DEP_DIR):
@@ -54,23 +48,18 @@ include $(wildcard $(DEPFILES))
 # ==========  BUILD TARGETS ==========
 
 # target for actually building executables
-$(EXCS): $(EXCS:%=%.o)
+$(EXCS): $(SRCS:%.cpp=%.o)
 	@echo building $@ from $<
 	$(CC) $(CPPFLAGS) $(CPPFLAGS_EXTRA) $@.o -o $@ $(LDFLAGS) $(LDFLAGS_EXTRA)
 
 clean-excs:
-	@echo removing
-	@echo $(EXCS) | xargs rm -v
+	@echo $(EXCS) | xargs rm -v || true
 
 clean-deps:
-	@echo removing
-	@find $(DEP_DIR) -iname "*.d" -delete | xargs rm -v
-	@rm -rv $(DEP_DIR)
+	@rm -rv $(DEP_DIR) || true
 
 clean-objects:
-	@echo removing
-	@find . -iname "*.o" -type f | xargs rm -v
-	@find . -iname "*.dSYM" -type d | xargs rm -rv
+	@find . -iname "*.o" -type f | xargs rm -v || true
 
 .PHONY: build clean clean-excs clean-deps clean-objects
 
