@@ -2,8 +2,8 @@
 #define LA_WRAPPER
 
 // #include <gsl/gsl_cblas.h>
-#include <cblas.h>
-
+// #include <cblas.h>
+#include <mkl.h>
 #include <complex>
 
 namespace blas_wrapper
