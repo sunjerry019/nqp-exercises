@@ -1,0 +1,244 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{bm, bbm, wrapfig, float, setspace, amsmath, amssymb, amsthm, url, graphicx, ngerman, transparent, enumerate, bbold, esint, polynom, hyperref, microtype, etoolbox, braket, cleveref, hyphenat}
+\usepackage{centernot}
+
+\usepackage{tikz}
+\usepackage{epsdice}
+\usepackage{listings}
+\lstset{language=Python}
+\tikzset{>=stealth}
+\usetikzlibrary{decorations.markings, shapes, calc}
+
+\renewcommand{\familydefault}{cmss}   % Generates sans serif fonts
+
+
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\gs}{\text{gs}}
+\renewcommand{\P}{\hat{P}}
+\newcommand{\U}{\hat{U}}
+
+% \newcommand{\bra}[1]{\langle#1|}
+% \newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bkt}[2]{\left\langle #1 |#2 \right\rangle}
+\renewcommand{\ij}{{\langle \vec{i}, \vec{j} \rangle}}
+\renewcommand{\H}{\hat{\mathcal{H}}}
+\newcommand{\Ht}{\tilde{\mathcal{H}}}
+\renewcommand{\c}{\hat{c}}
+\renewcommand{\a}{\hat{a}}
+\newcommand{\cd}{\hat{c}^\dagger}
+\newcommand{\rh}{\hat{\rho}}
+\newcommand{\rht}{\tilde{\rho}}
+\newcommand{\ad}{\hat{a}^\dagger}
+\newcommand{\bd}{\hat{b}^\dagger}
+\newcommand{\ubd}{\hat{\uline{b}}^\dagger}
+\newcommand{\ub}{\hat{\uline{b}}}
+\renewcommand{\b}{\hat{b}}
+\newcommand{\hd}{\hat{h}^\dagger}
+\newcommand{\h}{\hat{h}}
+\renewcommand{\d}{\hat{d}}
+\newcommand{\n}{\hat{n}}
+\newcommand{\D}{\hat{D}}
+\newcommand{\Dd}{\hat{D}^\dagger~\hspace{-0.12cm}}
+
+\newcommand{\G}{\hat{\Gamma}}
+\newcommand{\Gd}{\hat{\Gamma}^\dagger}
+\newcommand{\F}{\hat{F}}
+\newcommand{\Fd}{\hat{F}^\dagger}
+\newcommand{\hc}{\text{h.c.}}
+\newcommand{\MF}{\text{MF}}
+\newcommand{\BEC}{\text{BEC}}
+\newcommand{\RG}{\text{RG}}
+\newcommand{\psd}{\hat{\psi}^\dagger}
+\newcommand{\ps}{\hat{\psi}}
+\newcommand{\I}{\text{I}}
+\newcommand{\p}{\text{p}}
+\newcommand{\f}{\text{F}}
+\newcommand{\s}{\text{S}}
+\renewcommand{\sf}{\text{MIX}}
+\renewcommand{\O}{\hat{\mathcal{O}}}
+\newcommand{\W}{\hat{W}}
+\newcommand{\Ud}{\hat{U}^\dagger}
+\newcommand{\HMF}{\mathscr{H}_{\text{MF}}}
+\newcommand{\ph}{\text{ph}}
+\newcommand{\IB}{\text{IB}}
+\newcommand{\B}{\text{B}}
+\newcommand{\eff}{\text{eff}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\tdiff}{\,\mathrm{d}}
+
+
+
+\normalsize
+\setlength{\hoffset}{-1.5cm}
+\addtolength{\textwidth}{3cm}
+\setlength{\voffset}{-2.2cm}
+\addtolength{\textheight}{3.5cm}
+\addtolength{\footskip}{0.2cm}
+
+%\input{macros.tex}
+\newtheorem{aufgabe}{Problem}
+\newtheorem{bspaufgabe}{Beispielaufgabe}
+
+\usepackage{titlesec}
+
+\titleformat{\section}[block]
+{\normalfont}{\textbf{Problem \thesection}}{1em}{}
+
+\DeclareMathOperator{\dd}{d}
+\newcommand{\eul}{\text{e}}
+
+% imaginary unit 
+\newcommand{\imag}{\textsl{i}}
+%
+% with or without solution?
+%
+\makeatletter
+\@ifundefined{solfalse}{
+\newif\ifsol
+\soltrue
+}
+\makeatother
+\newcommand{\solA}{\vskip0.5em \color{brown}\noindent\textbf{Solution:\\}}
+\newcommand{\sol}[1]{\vskip0.5em \color{brown}\noindent\textbf{Solution:}\\#1}
+
+\usepackage{relsize}
+\newcommand\Cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+
+\begin{document}
+	   
+% ********** First Box **************
+\vspace*{-13mm}
+\noindent\fbox{
+	\parbox[b][19mm][b]{16mm}{%\parbox[POS][H�HE][POS-INNEN]{BREITE}{INHALT}
+		\center\includegraphics[trim=1.6mm  0 0 0, width=18mm]{../../images/lmu-bildmarke.png}
+	}
+}
+\hfill
+% ********** Second Box **************
+% Diese Schrift sollte so gross sein, dass die Oberkante des Ms von
+% Max mit der Oberkante von LMU abschliesst
+\fbox{\parbox[b][19mm][b]{19mm}{\includegraphics[width=19mm,height=19mm]{../../images/lmu-wortmarke.png}}}%
+\hfill\hfill
+% ********** Third Box **************
+\fbox{\parbox[b][19mm][b]{84mm}{\fontsize{9}{12}\sc Faculty of Physics, Summer Term 2023 \\  Numerical Quantum Physics\\ 
+		Lecturer: Dr. S. Paeckel \\ Assistant Lecturer: Z. Xie, B. Schneider
+		\vspace{0.1mm}}}
+\hfill
+% ********** Fourth Box **************
+\fbox{
+	\parbox[b][19mm][b]{25mm}{\hspace*{3mm}\transparent{0.52}{\vspace{-1mm}\includegraphics[trim=0 6mm 16mm 20mm, clip, height=21mm]{../../images/lmu-siegel.png}}\transparent{1}}
+}
+\begin{center}
+	\small \url{https://www2.physik.uni-muenchen.de/lehre/vorlesungen/sose_23/nqp/}
+\end{center}
+%
+\vspace{8mm}
+%
+\centerline{\Large\textbf{Sheet~1:~Linear Algebra}}
+%
+\vspace{3mm}
+%
+\normalsize\centerline{Release:~04/21/23;~Submit until:~05/05/23 (\textbf{20 Points})}
+%
+%\vspace{0mm}
+%
+%
+\vspace{6mm}
+%
+This sheet is about a very small introduction into elementary concepts of \Cpp{} and how to use them to implement fast linear algebra operations.
+%
+In order to work through the problems, checkout the \texttt{git} repository \href{git@gitlab.physik.uni-muenchen.de:nqp/nqp-exercises.git}{nqp-exercises} provided on the lecture's \href{https://www2.physik.uni-muenchen.de/lehre/vorlesungen/sose_23/nqp/uebungen/index.html}{homepage} and work with the code templates.
+%
+
+%
+\section{Implementing a matrix class \textbf{(5 Points)}}
+%
+Checkout the code template \texttt{blas\_wrapper}, which contains an elementary implementation of a wrapper of a widely used linear algebra library: Intel's \underline{M}ath \underline{K}ernel \underline{L}ibrary.
+%
+While the header file \texttt{la\_wrapper.h}, which contains an interface to some linear algebra methods of the MKL, is complete, in each code template there are files which are erroneous and need to be corrected.
+%
+In a \href{https://jupyter.physik.uni-muenchen.de}{Jupyter-Hub} session, use the provided \textit{Makefile} as well as a proper make.inc to compile the corrected code templates.
+%
+\begin{itemize}
+	\item[(1.a)] \textbf{(3P)}
+	%
+	Correct the code template \texttt{blas\_wrapper} such that you can compile it using \texttt{make build}.
+	%
+	As a consistency check, you can use the default implementation of the \texttt{main}-routine and check the output when executing the compiled binary.
+	%
+	\item[(1.b)] \textbf{(2P)}
+	%
+	You now have a rudimentary matrix class that implements fast linear algebra operations using Intel's MKL.
+	%
+	Use this class and write a \texttt{main}-routine which performs a scaling analysis of the runtime needed to copy matrices with dimension $m \times m$ for $m\in\mathbb N$ and plot the runtime as a function of $m$.
+	%
+\end{itemize}
+%
+
+%
+\section{Implementing fast matrix contractions \textbf{(10 Points)}}
+%
+For this exercise, checkout the code template \texttt{gemm\_wrapper}, which provides an elementary implementation of the fast \texttt{xgemm} operations.
+%
+Here, the \texttt{x} denotes the fundamental data type, i.e., \texttt{single}, \texttt{double}, \texttt{complex single}, or \texttt{complex double}.
+%
+The acronym \texttt{gemm} abbreviates \underline{GE}neral \underline{M}atrix-\underline{M}atrix multiplications and this convention carries over for other provided operations, for instance, \underline{GE}neral \underline{M}atrix-\underline{V}ector multiplications (checkout Intel's \href{https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2023-1/overview.html}{developer guide} for a rather complete documentation about the blas/lapack interface).
+%
+\begin{itemize}
+	\item[(2.a)] \textbf{(5P)}
+	%
+	Proceed as in problem (1) and correct the code template.
+	%
+	Note how \texttt{la\_operations.h} now also contains a multiplication operations, which is compiled into an object file \texttt{la\_objects.o} that now implements a general matrix-matrix multiplication.
+	%
+	Write a test case, which tests the implemented \texttt{xgemm}-functionality and returns success (return code 0) or failure (return code 1) on exit, depending on whether a successful matrix-matrix multiplication has been performed.
+	%
+	Why is such a test case useful?
+	%
+	\item[(2.b)] \textbf{(5P)}
+	%
+	Write a trivial version of a matrix-matrix multiplication by implementing the calculations of the elements
+	\begin{equation}
+		C_{ij} = \sum_k A_{ik} B_{kj}
+	\end{equation}
+	of the result of a matrix-matrix product $\mathbf C = \mathbf A \cdot \mathbf B$, explicitely.
+	%
+	Here, we consider $\mathbf A, \mathbf B, \mathbf C \in \mathbb V^{m\times m}_\mathbb{R}$ for some $m\in \mathbb N$.
+	%
+	Perform a runtime analysis comparing your naive implementation with \texttt{xgemm} calls, investigating the dependency of the runtime on the matrix dimension $m$.
+	%
+	Interpret you result.
+	%
+\end{itemize}
+%
+
+%
+\section{Syntactic sugar for matrix contractions \textbf{(5 Points)}}
+%
+For this exercise, checkout the code template \texttt{expr\_templates}, which provides an elementary implementation of expression templates to overload the multiplication operator.
+%
+In problem (2) we introduced an operator overload to the multiplication operator \texttt{*}, allowing for expression such as \texttt{C=A*B} in \Cpp.
+%
+However, that implementation also required an intermediate copy operation, which is necessary because \texttt{*} is a binary operator and the result of the matrix-matrix multiplication has to get through a temporary return value.
+%
+This unfortunate fact can be avoided by delayed evaluation, which in \Cpp{} can be implemented using \textit{expression templates}.
+%
+\begin{itemize}
+	\item[(3.a)] \textbf{(3P)}
+	%
+	Proceed as in problem (1) and (2) and correct the code template.
+	%
+	In particular note how the binary matrix-matrix multiplication operator \texttt{*} is mapped to the unary assignment operator \texttt{=}, which assigns the result of the operation to an instance of \texttt{LAMatrix} without additional copy-operations.
+	%
+	\item[(3.b)] \textbf{(2P)}
+	%
+	Perform a runtime analysis and exctract the speed-up as a function of the matrix-dimension $m$ obtained, using the \texttt{xgemm}-impementations of the \texttt{*}-operator from problem (2) and (3).
+	%
+\end{itemize}
+%
+\batchmode  % This suppresses some verbose LaTeX output
+\end{document}
+
