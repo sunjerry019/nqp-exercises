@@ -13,14 +13,6 @@ int main(int /*argc*/, char **/*argv[]*/)
         }
     }
 
-    for (unsigned int r = 0; r < B.n_rows(); r++)
-    {
-        for (unsigned int c = 0; c < B.n_cols(); c++)
-        {
-            B(r, c) = c + r*B.leading_dim();
-        }
-    }
-
     std::cout << std::setprecision(20) << std::scientific;
     std::cout << "A:" << std::endl; A.print(std::cout); std::cout << std::endl;
 
