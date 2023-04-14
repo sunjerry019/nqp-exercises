@@ -141,26 +141,26 @@
 %
 \vspace{3mm}
 %
-\normalsize\centerline{Release:~04/21/23;~Submit until:~05/05/23 (\textbf{20 Points})}
+\normalsize\centerline{Released:~04/21/23;~Submit until:~05/05/23 (\textbf{20 Points})}
 %
 %\vspace{0mm}
 %
 %
 \vspace{6mm}
 %
-This sheet is about a very small introduction into elementary concepts of \Cpp{} and how to use them to implement fast linear algebra operations.
+This sheet is about a very small introduction into elementary concepts of \Cpp{} and how to use them to implement fast linear algebra operations using Intel's \underline{M}ath \underline{K}ernel \underline{L}ibrary (MKL).
 %
 In order to work through the problems, checkout the \texttt{git} repository \href{git@gitlab.physik.uni-muenchen.de:nqp/nqp-exercises.git}{nqp-exercises} provided on the lecture's \href{https://www2.physik.uni-muenchen.de/lehre/vorlesungen/sose_23/nqp/uebungen/index.html}{homepage} and work with the code templates.
+%
+While the header file \texttt{la\_wrapper.h}, which contains an interface to some linear algebra methods of the MKL, is complete, in each code template there are files which are erroneous and need to be corrected.
+%
+In a \href{https://jupyter.physik.uni-muenchen.de}{Jupyter-Hub} session, use the provided \textit{Makefile} as well as a proper make.inc to compile the corrected code templates.
 %
 
 %
 \section{Implementing a matrix class \textbf{(5 Points)}}
 %
-Checkout the code template \texttt{blas\_wrapper}, which contains an elementary implementation of a wrapper of a widely used linear algebra library: Intel's \underline{M}ath \underline{K}ernel \underline{L}ibrary.
-%
-While the header file \texttt{la\_wrapper.h}, which contains an interface to some linear algebra methods of the MKL, is complete, in each code template there are files which are erroneous and need to be corrected.
-%
-In a \href{https://jupyter.physik.uni-muenchen.de}{Jupyter-Hub} session, use the provided \textit{Makefile} as well as a proper make.inc to compile the corrected code templates.
+Checkout the code template \texttt{blas\_wrapper}, which contains an elementary implementation of a wrapper of the widely used linear algebra MKL.
 %
 \begin{itemize}
 	\item[(1.a)] \textbf{(3P)}
