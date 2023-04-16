@@ -175,6 +175,8 @@ Checkout the code template \texttt{blas\_wrapper}, which contains an elementary 
 	%
 	Use this class and write a \texttt{main}-routine which performs a scaling analysis of the runtime needed to copy matrices with dimension $m \times m$ for $m\in\mathbb N$ and plot the runtime as a function of $m$.
 	%
+	Extract the exponent $\alpha$ determining the dominating scaling of the runtime $t \sim m^\alpha$.
+	%
 \end{itemize}
 %
 
@@ -204,11 +206,11 @@ The acronym \texttt{gemm} abbreviates \underline{GE}neral \underline{M}atrix-\un
 	\begin{equation}
 		C_{ij} = \sum_k A_{ik} B_{kj}
 	\end{equation}
-	of the result of a matrix-matrix product $\mathbf C = \mathbf A \cdot \mathbf B$, explicitely.
+	of the result of a matrix-matrix product $\mathbf C = \mathbf A \cdot \mathbf B$, explicitly.
 	%
 	Here, we consider $\mathbf A, \mathbf B, \mathbf C \in \mathbb V^{m\times m}_\mathbb{R}$ for some $m\in \mathbb N$.
 	%
-	Perform a runtime analysis comparing your naive implementation with \texttt{xgemm} calls, investigating the dependency of the runtime on the matrix dimension $m$.
+	Perform a runtime analysis comparing your naive implementation with \texttt{xgemm} calls, investigate the dependency of the runtime on the matrix dimension $m$ and extract the exponent $\beta$ determining the dominating scaling of the runtime $t \sim m^\beta$.
 	%
 	Interpret you result.
 	%
