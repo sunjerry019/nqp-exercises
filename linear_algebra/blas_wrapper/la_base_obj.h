@@ -59,6 +59,8 @@ namespace la_objects
             {
                 throw std::runtime_error("failure accessing la-object's element, violated condition: col " + std::to_string(_n_col) + "not in the half open range [" + std::to_string(0) + "," + std::to_string(this->n_cols()) + ")");
             }
+
+            return this->data[_n_col * shape_info.leading_dim + _n_row];
         }
         const T &get(size_t _n_row, size_t _n_col) const
         {
@@ -70,6 +72,8 @@ namespace la_objects
             {
                 throw std::runtime_error("failure accessing la-object's element, violated condition: col " + std::to_string(_n_col) + "not in the half open range [" + std::to_string(0) + "," + std::to_string(this->n_cols()) + ")");
             }
+
+            return this->data[_n_col * shape_info.leading_dim + _n_row];
         }
 
     public:
