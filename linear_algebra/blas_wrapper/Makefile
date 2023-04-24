@@ -12,6 +12,8 @@ CPPFLAGS_EXTRA=
 LDFLAGS=
 LDFLAGS_EXTRA=
 
+make_inc=../make.inc
+
 # include optional make.inc file
 include $(make_inc)
 
