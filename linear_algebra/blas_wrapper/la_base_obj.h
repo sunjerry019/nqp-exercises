@@ -160,6 +160,9 @@ namespace la_objects
 
         template <typename Type>
         friend void la_operations::copy_data(const la_objects::LABaseObject<Type> &_src, la_objects::LABaseObject<Type> &_dest);
+        
+        template <typename Type>
+        friend void la_operations::scale(const Type &_scale, la_objects::LABaseObject<Type> &_dest);
     };
 
 } // END NAMESPACE la_objects
