@@ -39,20 +39,10 @@ if rank == 0:
 comm.Gather(timings, recvBuffer, root = 0)
 
 if rank == 0: 
-    # print(recvBuffer.shape)
     collapsed = recvBuffer.reshape((repeats * size, numpts)).T
-    
-    # print(collapsed.size)
-    # print(collapsed)
 
     avg    = np.average(collapsed, axis = 1)
     stddev = np.std(collapsed, axis = 1)
-
-    # print(avg.shape)
-    # print(avg)
-
-    # print(stddev.shape)
-    # print(stddev)
 
     now = datetime.now()
     dt_string = now.strftime("%Y%m%d-%H:%M:%S")
