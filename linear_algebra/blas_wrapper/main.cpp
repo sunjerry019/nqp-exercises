@@ -1,10 +1,9 @@
 #include <iomanip>
 #include <la_operations.h>
 
-int main(int /*argc*/, char **/*argv[]*/)
+template <typename T>
+void initialize_matrix(la_objects::LABaseObject<T> &A) 
 {
-    la_objects::LABaseObject<double> A(2, 2);
-
     for (unsigned int r = 0; r < A.n_rows(); r++)
     {
         for (unsigned int c = 0; c < A.n_cols(); c++)
@@ -13,12 +12,25 @@ int main(int /*argc*/, char **/*argv[]*/)
         }
     }
 
-    std::cout << std::setprecision(20) << std::scientific;
-    std::cout << "A:" << std::endl; A.print(std::cout); std::cout << std::endl;
+    return;
+}
 
-    A *= 2.0;
+int main(int argc, char * argv[])
+{
+    if (argc != 2) { std::cout << "Please input the matrix size"; return 1; }
 
-    std::cout << "2*A:" << std::endl; A.print(std::cout); std::cout << std::endl;
+    int m = atoi(argv[1]);
+    std::cout << m << std::endl;
+
+    if (m <= 0) { std::cout << "Please enter a valid matrix size > 0"; return 1; }
+
+    la_objects::LABaseObject<double> A(m, m), B(m, m);
+    
+    initialize_matrix(A);
+
+
+    // std::cout << std::setprecision(20) << std::scientific;
+    // std::cout << "A:" << std::endl; A.print(std::cout); std::cout << std::endl;
 
     return 0;
 }
