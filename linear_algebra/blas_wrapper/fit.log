@@ -1,0 +1,27 @@
+Tue Apr 25 18:52:51 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230425-18:05:20.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 9200.00]
+        #datapoints = 36
+function used for fitting: f(x)
+	f(x) = x**A
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A            
+   0 6.2516320744e+13   0.00e+00  3.56e+07    3.000000e+00
+  16 3.5592210047e+03  -6.92e-04  3.56e-09    1.636167e+00
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 3559.22
+rel. change during last iteration : -6.92371e-09
+
+degrees of freedom    (FIT_NDF)                        : 35
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 10.0842
+variance of residuals (reduced chisquare) = WSSR/ndf   : 101.692
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 1.63617          +/- 0.02247      (1.374%)
