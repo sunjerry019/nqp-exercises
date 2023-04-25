@@ -1,9 +1,8 @@
 #/usr/bin/env python3
 
 # 50 cores
-# We distribute to 20 cores, on each one we run the main program with the size 20 times, obtaining 800 data points
+# We distribute to 4 cores, on each one we run the main program with the size 20 times, obtaining 800 data points
 # Then we get an average over all the results
-# Repeat until m = 5000
 
 from mpi4py import MPI
 import subprocess
@@ -15,13 +14,14 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-start = 1
-stop  = 5000
 repeats = 20
 
-numpts = (stop - start + 1)
+basearr = np.linspace(start = 1, stop = 9, num = 9, endpoint = True, dtype = int)
+arr = np.concatenate((basearr, basearr * 10, basearr * 100, basearr * 1000))
 
-arr = np.linspace(start = start, stop = stop, num = numpts, endpoint = True, dtype = int)
+print(arr)
+
+numpts = len(arr)
 timings = np.zeros(shape = (repeats, numpts))
 
 for midx in range(numpts):
