@@ -26,13 +26,13 @@ int main(int /*argc*/, char **/*argv[]*/)
         }
     }
 
-    std::cout << std::setprecision(20) << std::scientific;
+    // std::cout << std::setprecision(20) << std::scientific;
     std::cout << "A:" << std::endl << A << std::endl;
     std::cout << "B:" << std::endl << B << std::endl;
 
-    A *= 2.0;
+    // A *= 2.0;
 
-    std::cout << "A:" << std::endl; A.print(std::cout); std::cout << std::endl;
+    // std::cout << "2*A:" << std::endl; A.print(std::cout); std::cout << std::endl;
 
     C = A * B;
 

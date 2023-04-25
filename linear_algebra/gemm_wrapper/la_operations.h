@@ -43,12 +43,12 @@ void contract(const la_objects::LAMatrix<T>& _larg, const la_objects::LAMatrix<T
     }
     
     // https://developer.apple.com/documentation/accelerate/1513264-cblas_sgemm
-    blas_wrapper::gemm('C', 'C', 
-        _dest.n_rows(), _dest.n_cols(), _larg.n_rows(),
-        1, 
+    blas_wrapper::gemm('n', 'n', 
+        _larg.n_rows(), _rarg.n_cols(), _larg.n_cols(),
+        1.0, 
         _larg.get_data_ptr(), _larg.leading_dim(),
         _rarg.get_data_ptr(), _rarg.leading_dim(),
-        1,
+        0.0,
         _dest.get_data_ptr(), _dest.leading_dim()
     );
 }
