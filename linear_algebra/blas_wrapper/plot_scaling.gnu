@@ -15,14 +15,15 @@ set grid mxtics xtics ytics mytics
 
 set xrange [0:9200]
 
-A = 3
-f(x) = x**A
+A = 2
+B = 2
+f(x) = A*(x**B) + C
 
-fit f(x) "slurm/scaling_result_20230425-18:05:20.tsv" u 1:2:3 yerrors via A
+fit f(x) "slurm/scaling_result_20230425-18:05:20.tsv" u 1:2:3 yerrors via A,B,C
 # fit f(x) "slurm/scaling_result_20230425-18:05:20.tsv" u 1:2 via A
 
 set key bottom right spacing 1.5
 
-titel = "Fit: m^{".gprintf("%.5f", A)."}"
+titel = "Fit: (".gprintf("%.5f", A).")m^{".gprintf("%.5f", B)."} + (".gprintf("%.5f", C).")"
 plot f(x) title titel, \
     "slurm/scaling_result_20230425-18:05:20.tsv" u 1:2:3 with yerrorbars title "Data Points"
