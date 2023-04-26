@@ -1,6 +1,6 @@
 # ========== SETUP SOURCE FILES ==========
 
-EXCS = main
+EXCS = main test
 SRCS = $(wildcard *.cpp)
 
 # ========== SETUP COMPILER FLAGS ==========
