@@ -17,6 +17,7 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 repeats = 10
+trieslimit = 100
 
 basearr = np.linspace(start = 1, stop = 9, num = 9, endpoint = True, dtype = int)
 arr = np.concatenate((basearr, basearr * 10, basearr * 100, basearr * 1000))
@@ -33,12 +34,28 @@ for midx in range(numpts):
 
     print(rank, m)
     
-    for iteration in range(repeats):
-        if m <= 1000:
-            timings_xgemm[iteration, midx], timings_naive[iteration, midx] = [int(x) for x in subprocess.check_output(["./main", f"{m}"]).strip().split(b"\n")]
-        else:
-            timings_xgemm[iteration, midx] = int(subprocess.check_output(["./main", f"{m}", "1"]).strip())
-            timings_naive[iteration, midx] = np.nan
+    iteration = 0
+    tries = 0
+    while iteration < repeats:
+        try:
+            tries += 1
+            if tries > trieslimit:
+                timings_xgemm[iteration, midx] = np.nan
+                timings_naive[iteration, midx] = np.nan
+                iteration += 1
+                continue
+
+            if m <= 1000:
+                timings_xgemm[iteration, midx], timings_naive[iteration, midx] = [int(x) for x in subprocess.check_output(["./main", f"{m}"]).strip().split(b"\n")]
+            else:
+                timings_xgemm[iteration, midx] = int(subprocess.check_output(["./main", f"{m}", "1"]).strip())
+                timings_naive[iteration, midx] = np.nan
+            iteration += 1
+            
+        except subprocess.CalledProcessError as e:
+            print(rank, "Error: ", e)
+            pass
+
 
 recvBuffer_xgemm = None
 recvBuffer_naive = None
@@ -52,8 +69,8 @@ comm.Gather(timings_naive, recvBuffer_naive, root = 0)
 if rank == 0: 
     def calculate(recvBuffer) -> Tuple[np.ndarray, np.ndarray]:
         collapsed = recvBuffer.reshape((repeats * size, numpts)).T
-        avg    = np.average(collapsed, axis = 1)
-        stddev = np.std(collapsed, axis = 1)
+        avg    = np.nanmean(collapsed, axis = 1)
+        stddev = np.nanstd(collapsed, axis = 1)
 
         return (avg, stddev)
 
