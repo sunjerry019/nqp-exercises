@@ -2,7 +2,7 @@
 #
 #SBATCH --job-name=GEMMScaling
 #SBATCH --comment="Check GEMMScaling"
-#SBATCH --ntasks=10
+#SBATCH --ntasks=5
 #SBATCH --partition=cip
 #SBATCH --mem-per-cpu=2048
 #SBATCH --time=24:00:00
