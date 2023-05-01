@@ -1,0 +1,1829 @@
+
+
+*******************************************************************************
+Mon May  1 13:56:18 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 31
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 7.1520243674e+02   0.00e+00  6.07e-02    1.000000e+00   1.000000e+00   1.000000e+00
+  37 1.3847732770e+02  -7.65e-01  6.07e-08    1.613766e-01   2.072509e+00   4.963390e+03
+
+After 37 iterations the fit converged.
+final sum of squares of residuals : 138.477
+rel. change during last iteration : -7.65196e-06
+
+degrees of freedom    (FIT_NDF)                        : 28
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22387
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.94562
+p-value of the Chisq distribution (FIT_P)              : 1.11022e-16
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.161377         +/- 0.2169       (134.4%)
+B               = 2.07251          +/- 0.188        (9.071%)
+C               = 4963.39          +/- 953.7        (19.21%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.997  1.000 
+C              -0.047  0.044  1.000 
+
+
+*******************************************************************************
+Mon May  1 13:56:18 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+
+Current data point
+=========================
+#               = 1 out of 28
+x               = 1              
+z               = 0              
+s               = 0              
+
+BREAK: Zero error value in data file
+
+*******************************************************************************
+Mon May  1 13:57:58 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 31
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 7.1520243674e+02   0.00e+00  6.07e-02    1.000000e+00   1.000000e+00   1.000000e+00
+  37 1.3847732770e+02  -7.65e-01  6.07e-08    1.613766e-01   2.072509e+00   4.963390e+03
+
+After 37 iterations the fit converged.
+final sum of squares of residuals : 138.477
+rel. change during last iteration : -7.65196e-06
+
+degrees of freedom    (FIT_NDF)                        : 28
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22387
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.94562
+p-value of the Chisq distribution (FIT_P)              : 1.11022e-16
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.161377         +/- 0.2169       (134.4%)
+B               = 2.07251          +/- 0.188        (9.071%)
+C               = 4963.39          +/- 953.7        (19.21%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.997  1.000 
+C              -0.047  0.044  1.000 
+
+
+*******************************************************************************
+Mon May  1 13:57:58 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04_naive.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+
+Current data point
+=========================
+#               = 1 out of 28
+x               = 1              
+z               = 0              
+s               = 0              
+
+BREAK: Zero error value in data file
+
+*******************************************************************************
+Mon May  1 13:58:22 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 31
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 7.1520243674e+02   0.00e+00  6.07e-02    1.000000e+00   1.000000e+00   1.000000e+00
+  37 1.3847732770e+02  -7.65e-01  6.07e-08    1.613766e-01   2.072509e+00   4.963390e+03
+
+After 37 iterations the fit converged.
+final sum of squares of residuals : 138.477
+rel. change during last iteration : -7.65196e-06
+
+degrees of freedom    (FIT_NDF)                        : 28
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22387
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.94562
+p-value of the Chisq distribution (FIT_P)              : 1.11022e-16
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.161377         +/- 0.2169       (134.4%)
+B               = 2.07251          +/- 0.188        (9.071%)
+C               = 4963.39          +/- 953.7        (19.21%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.997  1.000 
+C              -0.047  0.044  1.000 
+
+
+*******************************************************************************
+Mon May  1 13:58:23 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04_naive.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+
+Current data point
+=========================
+#               = 1 out of 28
+x               = 1              
+z               = 0              
+s               = 0              
+
+BREAK: Zero error value in data file
+
+*******************************************************************************
+Mon May  1 13:59:27 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 31
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 7.1520243674e+02   0.00e+00  6.07e-02    1.000000e+00   1.000000e+00   1.000000e+00
+  37 1.3847732770e+02  -7.65e-01  6.07e-08    1.613766e-01   2.072509e+00   4.963390e+03
+
+After 37 iterations the fit converged.
+final sum of squares of residuals : 138.477
+rel. change during last iteration : -7.65196e-06
+
+degrees of freedom    (FIT_NDF)                        : 28
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22387
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.94562
+p-value of the Chisq distribution (FIT_P)              : 1.11022e-16
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.161377         +/- 0.2169       (134.4%)
+B               = 2.07251          +/- 0.188        (9.071%)
+C               = 4963.39          +/- 953.7        (19.21%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.997  1.000 
+C              -0.047  0.044  1.000 
+
+
+*******************************************************************************
+Mon May  1 13:59:28 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:00:02 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:00:03 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:13 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:13 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:40 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:40 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:46 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:46 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:56 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:01:56 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:02:16 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:02:16 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:02:47 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:02:48 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:03:07 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:03:08 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:03:24 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:03:24 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:04:26 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 31
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 7.1520243674e+02   0.00e+00  6.07e-02    1.000000e+00   1.000000e+00   1.000000e+00
+  37 1.3847732770e+02  -7.65e-01  6.07e-08    1.613766e-01   2.072509e+00   4.963390e+03
+
+After 37 iterations the fit converged.
+final sum of squares of residuals : 138.477
+rel. change during last iteration : -7.65196e-06
+
+degrees of freedom    (FIT_NDF)                        : 28
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22387
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.94562
+p-value of the Chisq distribution (FIT_P)              : 1.11022e-16
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.161377         +/- 0.2169       (134.4%)
+B               = 2.07251          +/- 0.188        (9.071%)
+C               = 4963.39          +/- 953.7        (19.21%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.997  1.000 
+C              -0.047  0.044  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:04:26 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 4200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:04:46 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:04:46 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:10:09 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:10:09 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:11:23 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:11:23 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:11:36 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:11:36 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:12:31 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:12:31 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:13:08 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:13:09 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:21:05 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:21:05 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        x range restricted to [0.00000 : 7200.00]
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:26:02 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:26:03 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:11 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:11 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:38 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:38 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:51 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:2:3 yerrors
+        format = x:z:s
+        #datapoints = 34
+function used for fitting: f(x)
+	f(x) = A*(x**B) + C
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B             C            
+   0 8.0102155788e+02   0.00e+00  5.80e-02    1.000000e+00   1.000000e+00   1.000000e+00
+ 126 1.4912106247e+02  -2.64e-02  5.80e-08    3.521195e-02   2.289729e+00   4.999919e+03
+
+After 126 iterations the fit converged.
+final sum of squares of residuals : 149.121
+rel. change during last iteration : -2.64479e-07
+
+degrees of freedom    (FIT_NDF)                        : 31
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.19325
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.81036
+p-value of the Chisq distribution (FIT_P)              : 0
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.0352119        +/- 0.03569      (101.4%)
+B               = 2.28973          +/- 0.1359       (5.934%)
+C               = 4999.92          +/- 940.1        (18.8%)
+
+correlation matrix of the fit parameters:
+                A      B      C      
+A               1.000 
+B              -0.995  1.000 
+C              -0.042  0.039  1.000 
+
+
+*******************************************************************************
+Mon May  1 14:27:51 2023
+
+
+FIT:    data read from "slurm/scaling_result_20230428-00:51:04.tsv" u 1:4:5 yerrors
+        format = x:z:s
+        #datapoints = 26
+function used for fitting: g(x)
+	g(x) = D*(x**E) + F
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   D             E             F            
+   0 1.0115042387e+03   0.00e+00  1.19e+00    1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.4636793652e+00  -1.42e-01  1.19e-03    1.160276e-01   2.982130e+00   5.763917e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.46368
+rel. change during last iteration : -1.41796e-06
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.252266
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0636382
+p-value of the Chisq distribution (FIT_P)              : 1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+D               = 0.116028         +/- 0.002769     (2.386%)
+E               = 2.98213          +/- 0.004551     (0.1526%)
+F               = 0.576392         +/- 0.1794       (31.13%)
+
+correlation matrix of the fit parameters:
+                D      E      F      
+D               1.000 
+E              -0.945  1.000 
+F              -0.564  0.510  1.000 
