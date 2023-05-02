@@ -1,0 +1,236 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{bm, bbm, wrapfig, float, setspace, amsmath, amssymb, amsthm, url, graphicx, ngerman, transparent, enumerate, bbold, esint, polynom, hyperref, microtype, etoolbox, braket, cleveref, hyphenat}
+\usepackage{centernot}
+
+\usepackage{tikz}
+\usepackage{epsdice}
+\usepackage{listings}
+\lstset{language=Python}
+\tikzset{>=stealth}
+\usetikzlibrary{decorations.markings, shapes, calc}
+
+\renewcommand{\familydefault}{cmss}   % Generates sans serif fonts
+
+
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\gs}{\text{gs}}
+\renewcommand{\P}{\hat{P}}
+\newcommand{\U}{\hat{U}}
+
+% \newcommand{\bra}[1]{\langle#1|}
+% \newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bkt}[2]{\left\langle #1 |#2 \right\rangle}
+\renewcommand{\ij}{{\langle \vec{i}, \vec{j} \rangle}}
+\renewcommand{\H}{\hat{\mathcal{H}}}
+\newcommand{\Ht}{\tilde{\mathcal{H}}}
+\renewcommand{\c}{\hat{c}}
+\renewcommand{\a}{\hat{a}}
+\newcommand{\cd}{\hat{c}^\dagger}
+\newcommand{\rh}{\hat{\rho}}
+\newcommand{\rht}{\tilde{\rho}}
+\newcommand{\ad}{\hat{a}^\dagger}
+\newcommand{\bd}{\hat{b}^\dagger}
+\newcommand{\ubd}{\hat{\uline{b}}^\dagger}
+\newcommand{\ub}{\hat{\uline{b}}}
+\renewcommand{\b}{\hat{b}}
+\newcommand{\hd}{\hat{h}^\dagger}
+\newcommand{\h}{\hat{h}}
+\renewcommand{\d}{\hat{d}}
+\newcommand{\n}{\hat{n}}
+\newcommand{\D}{\hat{D}}
+\newcommand{\Dd}{\hat{D}^\dagger~\hspace{-0.12cm}}
+
+\newcommand{\G}{\hat{\Gamma}}
+\newcommand{\Gd}{\hat{\Gamma}^\dagger}
+\newcommand{\F}{\hat{F}}
+\newcommand{\Fd}{\hat{F}^\dagger}
+\newcommand{\hc}{\text{h.c.}}
+\newcommand{\MF}{\text{MF}}
+\newcommand{\BEC}{\text{BEC}}
+\newcommand{\RG}{\text{RG}}
+\newcommand{\psd}{\hat{\psi}^\dagger}
+\newcommand{\ps}{\hat{\psi}}
+\newcommand{\I}{\text{I}}
+\newcommand{\p}{\text{p}}
+\newcommand{\f}{\text{F}}
+\newcommand{\s}{\text{S}}
+\renewcommand{\sf}{\text{MIX}}
+\renewcommand{\O}{\hat{\mathcal{O}}}
+\newcommand{\W}{\hat{W}}
+\newcommand{\Ud}{\hat{U}^\dagger}
+\newcommand{\HMF}{\mathscr{H}_{\text{MF}}}
+\newcommand{\ph}{\text{ph}}
+\newcommand{\IB}{\text{IB}}
+\newcommand{\B}{\text{B}}
+\newcommand{\eff}{\text{eff}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\tdiff}{\,\mathrm{d}}
+
+
+
+\normalsize
+\setlength{\hoffset}{-1.5cm}
+\addtolength{\textwidth}{3cm}
+\setlength{\voffset}{-2.2cm}
+\addtolength{\textheight}{3.5cm}
+\addtolength{\footskip}{0.2cm}
+
+%\input{macros.tex}
+\newtheorem{aufgabe}{Problem}
+\newtheorem{bspaufgabe}{Beispielaufgabe}
+
+\usepackage{titlesec}
+
+\titleformat{\section}[block]
+{\normalfont}{\textbf{Problem \thesection}}{1em}{}
+
+\DeclareMathOperator{\dd}{d}
+\newcommand{\eul}{\text{e}}
+
+% imaginary unit 
+\newcommand{\imag}{\textsl{i}}
+%
+% with or without solution?
+%
+\makeatletter
+\@ifundefined{solfalse}{
+\newif\ifsol
+\soltrue
+}
+\makeatother
+\newcommand{\solA}{\vskip0.5em \color{brown}\noindent\textbf{Solution:\\}}
+\newcommand{\sol}[1]{\vskip0.5em \color{brown}\noindent\textbf{Solution:}\\#1}
+
+\usepackage{relsize}
+\newcommand\Cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+
+\begin{document}
+	   
+% ********** First Box **************
+\vspace*{-13mm}
+\noindent\fbox{
+	\parbox[b][19mm][b]{16mm}{%\parbox[POS][H�HE][POS-INNEN]{BREITE}{INHALT}
+		\center\includegraphics[trim=1.6mm  0 0 0, width=18mm]{../../images/lmu-bildmarke.png}
+	}
+}
+\hfill
+% ********** Second Box **************
+% Diese Schrift sollte so gross sein, dass die Oberkante des Ms von
+% Max mit der Oberkante von LMU abschliesst
+\fbox{\parbox[b][19mm][b]{19mm}{\includegraphics[width=19mm,height=19mm]{../../images/lmu-wortmarke.png}}}%
+\hfill\hfill
+% ********** Third Box **************
+\fbox{\parbox[b][19mm][b]{84mm}{\fontsize{9}{12}\sc Faculty of Physics, Summer Term 2023 \\  Numerical Quantum Physics\\ 
+		Lecturer: Dr. S. Paeckel \\ Assistant Lecturer: Z. Xie, B. Schneider
+		\vspace{0.1mm}}}
+\hfill
+% ********** Fourth Box **************
+\fbox{
+	\parbox[b][19mm][b]{25mm}{\hspace*{3mm}\transparent{0.52}{\vspace{-1mm}\includegraphics[trim=0 6mm 16mm 20mm, clip, height=21mm]{../../images/lmu-siegel.png}}\transparent{1}}
+}
+\begin{center}
+	\small \url{https://www2.physik.uni-muenchen.de/lehre/vorlesungen/sose_23/nqp/}
+\end{center}
+%
+\vspace{8mm}
+%
+\centerline{\Large\textbf{Sheet~2:~Exact Diagonalization}}
+%
+\vspace{3mm}
+%
+\normalsize\centerline{Released:~05/05/23;~Submit until:~05/19/23 (\textbf{20 Points})}
+%
+%\vspace{0mm}
+%
+%
+\vspace{6mm}
+%
+On this sheet we will set up a small exact diagonalization code to solve a fundamental problem of quantum mechanics: the one-dimensional transverse-field Ising model.
+%
+Solving the exercises, we will try to follow the paradigm of \textit{test-driven development}, which is a standard paradigm when developing complex code.
+%
+There are many neat tools for various languages.
+%
+If you are working with \texttt{Python}, you may find it helpful to have a closer look at the \texttt{Pytest} framework, which is already available on ASC cluster (after sourcing \texttt{init\_modules.sh}).
+%
+
+%
+\section{A tensor product Hilbert space \textbf{(8 Points)}}
+%
+We are considering a chain of $L\in\mathbb N$ spins, each of which being described by a two-dimensional degree of freedom $\ket{s_j} \in \mathbb C^2$ where $j\in\left\{0,\ldots,L-1 \right\}$ labels the lattice site.
+%
+The transverse-field Ising model with periodic boundary conditions in one dimension is now defined by the Hamiltonian
+\begin{equation}
+	\hat H = -\sum_{j=0}^{L-1} \hat \sigma^z_j \hat \sigma^z_{j+1} - h \sum_{j=0}^{L-1} \hat \sigma^x \;, \label{eq:tfim}
+\end{equation}
+where $h\in\mathbb R$ is the transverse magnetic field.
+%
+Here, the $\hat \sigma^\alpha_j$ are Pauli operators acting on the $j$th spin of the many-body Hilbert space $\mathcal H = \bigotimes_{j=0}^{L-1} \mathbb C^2$:
+\begin{equation}
+	 \hat \sigma^\alpha_j = \underbrace{\mathbb 1_{2\times 2} \otimes \cdots \otimes \mathbb 1_{2\times 2}}_{j-1\text{ times}} \otimes \hat \sigma^\alpha \otimes \underbrace{\mathbb 1_{2\times 2} \otimes \cdots \otimes \mathbb 1_{2\times 2}}_{L-j\text{ times}} \;.
+\end{equation}
+%
+
+%
+Implement a class that represents the Hilbert space $\mathcal H$ and operators acting on it, for a given number of lattice sites $L$.
+%
+It should at least provide the following functionality:
+\begin{itemize}
+	\item Generation of a random state, a ferromagnetic state and an antiferromagnetic state, represented as vectors $\vec x \in \mathbb C^{2^L}$.
+	\item Generation of operators $\hat \sigma^\alpha_j$ as well as the identity, acting on $\mathcal{H}$, represented as matrices $\in \mathbb C^{2^L \times 2^L}$.
+	\item Action of an operator $\hat O$ on a state $\ket{\psi} \in \mathcal H$.
+	\item Calculation of the standard scalar product $\braket{\cdot | \cdot}$ on $\mathcal H$.
+\end{itemize}
+%
+For each functionality, write a proper testcase which reasonably validates your implementation.
+%
+
+%
+\section{Determining the ground-state phase diagram\textbf{(12 Points)}}
+%
+Now that we have set the stage, we can start to study~\cref{eq:tfim}, numerically.
+%
+\begin{itemize}
+	\item[(2.a)] \textbf{(4P)}
+	%
+	Implement a function which generates a matrix representation of $\hat H$ as a function of the transverse field.
+	%
+	Write at least two testcases, which reasonably validate your implementation.
+	%
+	\item[(2.b)] \textbf{(2P)}
+	%
+	Calculate the ground-state energy density $e(h) = \braket{\hat H}/L$ as a function of the transverse field $h$.
+	%
+	Also, determine the average ground-state magnetization as a function of the transverse field
+	\begin{equation}
+		m(h) = \frac{1}{2L} \sum_{j=0}^{L-1} \braket{\hat \sigma^z_j} \;.
+	\end{equation}
+	%
+	\item[(2.c)] \textbf{(4P)}
+	%
+	Repeat your calculations for different number of lattice sites and determine the critical field $h_\mathrm{c}(L)$ at which the model undergoes a quantum phase transition.
+	%
+	Perform a finite-size scaling of $h_\mathrm{c}(L)$ to estimate $h_\mathrm{c}(L\rightarrow \infty)$, i.e., the critical field in the thermodynamic limit.
+	%
+	How does your result compare to the literature?
+	%
+	\item[(2.d)] \textbf{(2P)}
+	%
+	Show numerically that in the limits $h\rightarrow 0$ and $h\rightarrow \infty$, the ground states $\ket{\psi_0(h)}$ of~\cref{eq:tfim} approach the mean-field solutions
+	\begin{equation}
+		\ket{\psi_0(h)}
+		=
+		\begin{cases}
+			\ket{\uparrow}\otimes\ket{\uparrow} \cdots \text{ or } \ket{\downarrow}\otimes\ket{\downarrow} \cdots\;, &\text{if $h\rightarrow 0$,} \\
+			\ket{\rightarrow}\otimes\ket{\rightarrow} \cdots\;, &\text{if $h\rightarrow \infty$.} \\
+		\end{cases}
+	\end{equation}
+	%
+\end{itemize}
+%
+\batchmode  % This suppresses some verbose LaTeX output
+\end{document}
+
