@@ -154,7 +154,9 @@ Solving the exercises, we will try to follow the paradigm of \textit{test-driven
 %
 There are many neat tools for various languages.
 %
-If you are working with \texttt{Python}, you may find it helpful to have a closer look at the \texttt{Pytest} framework, which is already available on ASC cluster (after sourcing \texttt{init\_modules.sh}).
+If you are working in \texttt{Python}, you may find it helpful to have a closer look at the \texttt{Pytest} framework, which is already available on ASC cluster (after sourcing \texttt{init\_modules.sh}).
+%
+If your are working in \texttt{C++}, you can use the header file \texttt{catch.hpp} in the folder \texttt{exact\_diagonalization} of the exercise-git to set up unit tests (as for instance explained \href{https://medium.com/dsckiit/a-guide-to-using-catch2-for-unit-testing-in-c-f0f5450d05fb}{here}).
 %
 
 %
@@ -164,14 +166,15 @@ We are considering a chain of $L\in\mathbb N$ spins, each of which being describ
 %
 The transverse-field Ising model with periodic boundary conditions in one dimension is now defined by the Hamiltonian
 \begin{equation}
-	\hat H = -\sum_{j=0}^{L-1} \hat \sigma^z_j \hat \sigma^z_{j+1} - h \sum_{j=0}^{L-1} \hat \sigma^x \;, \label{eq:tfim}
+	\hat H = -\sum_{j=0}^{L-1} \hat \sigma^z_j \hat \sigma^z_{j+1} - h \sum_{j=0}^{L-1} \hat \sigma^x_j \;, \label{eq:tfim}
 \end{equation}
 where $h\in\mathbb R$ is the transverse magnetic field.
 %
-Here, the $\hat \sigma^\alpha_j$ are Pauli operators acting on the $j$th spin of the many-body Hilbert space $\mathcal H = \bigotimes_{j=0}^{L-1} \mathbb C^2$:
+Here, the $\hat \sigma^\alpha_j$ are Pauli operators acting on the $j$th spin of the many-body Hilbert space $\mathcal H = \bigotimes_{j=0}^{L-1} \mathbb C^2$, fulfilling the commutation relations
 \begin{equation}
-	 \hat \sigma^\alpha_j = \underbrace{\mathbb 1_{2\times 2} \otimes \cdots \otimes \mathbb 1_{2\times 2}}_{j-1\text{ times}} \otimes \hat \sigma^\alpha \otimes \underbrace{\mathbb 1_{2\times 2} \otimes \cdots \otimes \mathbb 1_{2\times 2}}_{L-j\text{ times}} \;.
+	 \left[ \hat \sigma^\alpha_i, \hat \sigma^\beta_j \right] = 2\delta_{ij}\epsilon^{\alpha\beta\gamma}\hat\sigma^\gamma_j \;,
 \end{equation}
+where $\alpha,\beta,\gamma\in \left\{x,y,z \right\}$ and $\epsilon^{\alpha\beta\gamma}$ is the Levi-Civita symbol.
 %
 
 %
@@ -179,8 +182,8 @@ Implement a class that represents the Hilbert space $\mathcal H$ and operators a
 %
 It should at least provide the following functionality:
 \begin{itemize}
-	\item Generation of a random state, a ferromagnetic state and an antiferromagnetic state, represented as vectors $\vec x \in \mathbb C^{2^L}$.
-	\item Generation of operators $\hat \sigma^\alpha_j$ as well as the identity, acting on $\mathcal{H}$, represented as matrices $\in \mathbb C^{2^L \times 2^L}$.
+	\item Generation of a random state, a ferromagnetic state along the $z$-direction and a ferromagnetic state along the $x$-direction, represented as vectors $\vec x \in \mathbb C^{2^L}$.
+	\item Generation of operators $\hat \sigma^\alpha_j$ as well as the identity, acting on $\mathcal{H}$, represented as matrices $\mathbf M \in \mathbb C^{2^L \times 2^L}$.
 	\item Action of an operator $\hat O$ on a state $\ket{\psi} \in \mathcal H$.
 	\item Calculation of the standard scalar product $\braket{\cdot | \cdot}$ on $\mathcal H$.
 \end{itemize}
@@ -194,17 +197,17 @@ For each functionality, write a proper testcase which reasonably validates your 
 Now that we have set the stage, we can start to study~\cref{eq:tfim}, numerically.
 %
 \begin{itemize}
-	\item[(2.a)] \textbf{(4P)}
+	\item[(2.a)] \textbf{(3P)}
 	%
 	Implement a function which generates a matrix representation of $\hat H$ as a function of the transverse field.
 	%
 	Write at least two testcases, which reasonably validate your implementation.
 	%
-	\item[(2.b)] \textbf{(2P)}
+	\item[(2.b)] \textbf{(3P)}
 	%
-	Calculate the ground-state energy density $e(h) = \braket{\hat H}/L$ as a function of the transverse field $h$.
+	Calculate the ground-state energy density $e(h) = \braket{\hat H}/L$ as a function of the transverse field $h$ by determining the ground state energy of $\hat H$.
 	%
-	Also, determine the average ground-state magnetization as a function of the transverse field
+	Also, evaluate the average ground-state magnetization as a function of the transverse field
 	\begin{equation}
 		m(h) = \frac{1}{2L} \sum_{j=0}^{L-1} \braket{\hat \sigma^z_j} \;.
 	\end{equation}
