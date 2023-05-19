@@ -7,7 +7,7 @@ using Test
 using Random
 using LinearAlgebra
 
-@testset "State Generation" verbose=true begin
+@testset "State and Operator Generation" verbose=true begin
     @testset "Random State Generation" begin
         L = abs(rand(Int, 1)[1] % 10)
         x = GetRandomState(L)
@@ -59,15 +59,35 @@ using LinearAlgebra
     end
     @testset "Pauli-Matrices" begin
         x = X(2, 1); y = Y(2, 1); z = Z(2, 1)
-
+        
         @test x.matrix == [0 1; 1 0]
         @test y.matrix == [0 -1im; 1im 0]
         @test z.matrix == [1 0; 0 -1]
     end
-    # @testset "Identity" begin
-        
-    # end
+    @testset "Identity" begin
+        q = IdentityOp(5) 
+
+        @test q.matrix == I
+    end
 end
+
+@testset "Operator on States" begin
+    @testset "Single Site spin flip" begin
+        _state = GetFerromagneticStateZ(3)
+        _spinflip_1 = X(3, 1)
+        _newstate = _spinflip_1 * _state
+
+        _correctstate = zeros(Complex{Float64}, 2^3)
+        _correctstate[_state.state[1] == 1 ? 5 : 4] = 1
+        _correctstate[_state.state[1] == 1 ? 1 : end] = 0
+
+        # If spin up,   then after X, |100> = [0 0 0 0 1 0 0 0]
+        # If spin down, then after X, |011> = [0 0 0 1 0 0 0 0]
+
+        @test  _newstate.state == _correctstate
+    end
+end
+
 
 
 
