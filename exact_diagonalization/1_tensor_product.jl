@@ -93,6 +93,12 @@ end
         x = GetRandomState(5)
         @test dot(x,x) ≈ norm(x.state)
     end
+    @testset "Orthogonal States" begin
+        x = GetFerromagneticStateZ(3, true)
+        y = GetFerromagneticStateZ(3, false)
+
+        @test dot(x,y) == 0
+    end
 end
 
 
