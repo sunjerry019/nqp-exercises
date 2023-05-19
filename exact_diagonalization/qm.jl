@@ -4,7 +4,7 @@ module QuantumMechanics
     using Random
     using LinearAlgebra
 
-    import Base: *
+    import Base: * # To extend an operator, you must first import it
 
     export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
 
@@ -53,7 +53,7 @@ module QuantumMechanics
 
         # Tensor product it L times
         args = ntuple(x -> vec, L)
-        fullvec = kron(args...)
+        fullvec = kron(args...) # Splatting
 
         return State(L, fullvec/norm(fullvec))
     end
