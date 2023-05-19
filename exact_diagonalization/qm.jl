@@ -5,10 +5,12 @@ module QuantumMechanics
     using LinearAlgebra
 
     import Base: * # To extend an operator, you must first import it
+    import LinearAlgebra: dot
 
     # States
     export State
     export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
+    export dot
     # Operators
     export Operator, OperatorSingleSite
     export IdentityOp, ExpandToFullHilbertSpace
