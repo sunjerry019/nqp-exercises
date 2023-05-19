@@ -36,3 +36,9 @@ using Test
     end
 end
 
+_h_array = collect(range(0, 100, length=100))
+L = 3
+
+for h_idx in eachindex(_h_array)
+    println(ground_state_energy_density(L, _h_array[h_idx]))
+end
