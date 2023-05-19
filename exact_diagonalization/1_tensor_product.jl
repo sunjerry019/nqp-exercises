@@ -36,3 +36,9 @@ using LinearAlgebra
         @test twox.state == xplus || twox.state == xminus 
     end
 end
+
+matrix = [1 0; 0 -1]
+x = OperatorSingleSite(2, 2, matrix)
+y = ExpandToFullHilbertSpace(x)
+display(x.matrix)
+display(y.matrix)

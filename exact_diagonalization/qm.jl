@@ -6,10 +6,16 @@ module QuantumMechanics
 
     import Base: * # To extend an operator, you must first import it
 
+    # States
+    export State
     export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
+    # Operators
+    export Operator, OperatorSingleSite
+    export IdentityOp, ExpandToFullHilbertSpace
 
     abstract type HilbertSpace end
 
+    # STATES
     mutable struct State <: HilbertSpace
         L     :: Integer  # Lattice Sites
         state :: Vector{Complex{Float64}}  
@@ -56,5 +62,43 @@ module QuantumMechanics
         fullvec = kron(args...) # Splatting
 
         return State(L, fullvec/norm(fullvec))
+    end
+
+    # OPERATORS
+    mutable struct Operator <: HilbertSpace
+        L      :: Integer # Full Number of Lattice Sites
+        matrix :: Matrix{Complex{Float64}}
+    end
+    mutable struct OperatorSingleSite <: HilbertSpace
+        L      :: Integer # Full Number of Lattice Sites
+        j      :: Integer # index of the lattice site its supposed to act on, 1 - indexed!
+        matrix :: Matrix{Complex{Float64}}
+    end
+
+    function IdentityOp(L :: Integer) :: Operator
+        return Operator(L, I) # Julia handles scaling automatically
+    end
+
+    function *(A :: Operator, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return Operator(A.L, A.matrix * B.matrix)
+    end
+    
+    function *(A :: Operator, B :: State) :: State
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return State(A.L, A.matrix * B.state)
+    end
+
+    function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
+        sites_before = ntuple(I, ssp.j - 1)
+        sites_after  = ntuple(I, ssp.L - ssp.j)
+        all_matrices = tuple(sites_before..., ssp.matrix, sites_after...)
+        return Operator(ssp.L, kron(all_matrices...))
     end
 end
