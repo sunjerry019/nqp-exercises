@@ -5,11 +5,13 @@ module QuantumMechanics
     using LinearAlgebra
 
     import Base: * # To extend an operator, you must first import it
+    import Base: +, -
     import LinearAlgebra: dot
 
     # States
     export State
     export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
+    export +, -
     export dot
     # Operators
     export Operator, OperatorSingleSite
@@ -129,6 +131,7 @@ module QuantumMechanics
         return OperatorSingleSite(L, site, _z)
     end
 
+    # MULTIPLICATION
     function *(A :: Operator, B :: Operator) :: Operator
         if (A.L != B.L)
             throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
@@ -178,6 +181,83 @@ module QuantumMechanics
 
         return ExpandToFullHilbertSpace(A) * B
     end
+    function *(A :: Number, B :: Operator) :: Operator
+        return Operator(B.L, A*B.matrix)
+    end
+    function *(A :: Number, B :: OperatorSingleSite) :: OperatorSingleSite
+        return OperatorSingleSite(B.L, B.site, A*B.matrix)
+    end
+
+    # ADDITION
+    function +(A :: Operator, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return Operator(A.L, A.matrix + B.matrix)
+    end
+
+    function +(A :: OperatorSingleSite, B :: OperatorSingleSite) :: OperatorSingleSite
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        elseif (A.site != B.site)
+            throw(DomainError("A and B act on different sites, unable to multiply"))
+        end
+
+        return OperatorSingleSite(A.L, A.site, A.matrix + B.matrix)
+    end
+
+    function +(A :: Operator, B :: OperatorSingleSite) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return A + ExpandToFullHilbertSpace(B)
+    end
+
+    function +(A :: OperatorSingleSite, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return ExpandToFullHilbertSpace(A) + B
+    end
+
+    # SUBTRACTION
+    function -(A :: Operator, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return Operator(A.L, A.matrix - B.matrix)
+    end
+
+    function -(A :: OperatorSingleSite, B :: OperatorSingleSite) :: OperatorSingleSite
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        elseif (A.site != B.site)
+            throw(DomainError("A and B act on different sites, unable to multiply"))
+        end
+
+        return OperatorSingleSite(A.L, A.site, A.matrix - B.matrix)
+    end
+
+    function -(A :: Operator, B :: OperatorSingleSite) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return A - ExpandToFullHilbertSpace(B)
+    end
+
+    function -(A :: OperatorSingleSite, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return ExpandToFullHilbertSpace(A) - B
+    end
+
 
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
         if (ssp.site > ssp.L)
