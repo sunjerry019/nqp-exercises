@@ -6,17 +6,18 @@ module QuantumMechanics
 
     import Base: * # To extend an operator, you must first import it
     import Base: +, -
-    import LinearAlgebra: dot
+    import LinearAlgebra: dot, normalize
 
     # States
     export State
     export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
     export +, -
-    export dot
+    export dot, normalize
     # Operators
     export Operator, OperatorSingleSite
     export ZeroOp, IdentityOp, ExpandToFullHilbertSpace
     export X, Y, Z
+    export expval
 
     abstract type HilbertSpace end
 
@@ -169,7 +170,8 @@ module QuantumMechanics
 
         _state = A.matrix * B.state
 
-        return State(A.L, _state/norm(_state))
+        # return State(A.L, _state/norm(_state))
+        return State(A.L, _state)
     end
 
     function *(A :: OperatorSingleSite, B :: OperatorSingleSite) :: OperatorSingleSite
