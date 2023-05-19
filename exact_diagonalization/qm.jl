@@ -152,6 +152,23 @@ module QuantumMechanics
         return ExpandToFullHilbertSpace(A) * B
     end
 
+    # We can then use an Identity to expand the hilbert space of an operator
+    function *(A :: Operator, B :: OperatorSingleSite) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return A * ExpandToFullHilbertSpace(B)
+    end
+
+    function *(A :: OperatorSingleSite, B :: Operator) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return ExpandToFullHilbertSpace(A) * B
+    end
+
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
         if (ssp.site > ssp.L)
             throw(DimensionMismatch(string("L larger than site, operator invalid")))
