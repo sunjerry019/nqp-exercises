@@ -98,6 +98,14 @@ module QuantumMechanics
         return State(A.L, A.state/norm(A.state))
     end
 
+    function +(A :: State, B :: State) 
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return normalize(State(A.L, A.state + B.state))
+    end
+
     # OPERATORS
     mutable struct Operator <: HilbertSpace
         L      :: Integer # Full Number of Lattice Sites
