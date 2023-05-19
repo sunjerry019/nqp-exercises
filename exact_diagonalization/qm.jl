@@ -15,7 +15,7 @@ module QuantumMechanics
     export dot
     # Operators
     export Operator, OperatorSingleSite
-    export IdentityOp, ExpandToFullHilbertSpace
+    export ZeroOp, IdentityOp, ExpandToFullHilbertSpace
     export X, Y, Z
 
     abstract type HilbertSpace end
@@ -107,6 +107,10 @@ module QuantumMechanics
         L      :: Integer # Full Number of Lattice Sites
         site   :: Integer # index of the lattice site its supposed to act on, 1 - indexed!
         matrix :: Matrix{Complex{Float64}}
+    end
+
+    function ZeroOp(L :: Integer) :; Operator
+        return Operator(L, zeros(Complex{Float64}, (2^L, 2^L)))
     end
 
     function IdentityOp(L :: Integer) :: Operator
