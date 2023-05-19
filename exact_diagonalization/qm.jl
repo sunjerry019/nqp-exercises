@@ -117,6 +117,11 @@ module QuantumMechanics
         matrix :: Matrix{Complex{Float64}}
     end
 
+    function expval(O :: Operator, ϕ :: State) :: Real
+        _v = O * ϕ
+        return dot(ϕ, _v)
+    end
+
     function ZeroOp(L :: Integer) :; Operator
         return Operator(L, zeros(Complex{Float64}, (2^L, 2^L)))
     end
@@ -124,7 +129,7 @@ module QuantumMechanics
     function IdentityOp(L :: Integer) :: Operator
         return Operator(L, Diagonal(ones(2^L))) # Alternative to just using I
     end
-    
+
     function X(L :: Integer, site :: Integer) :: OperatorSingleSite
         if (site > L)
             throw(DimensionMismatch(string("L larger than site, operator not possible")))

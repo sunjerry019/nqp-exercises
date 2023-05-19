@@ -55,3 +55,10 @@ end
 end
 
 # (2.b)
+function ground_state_energy(L :: Integer, h :: Real) :: Real
+    _H = H(L, h)
+    evals = eigvals(_H.matrix)
+    return minimum(evals)
+end
+
+print(ground_state_energy(2,1))
