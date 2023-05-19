@@ -35,10 +35,16 @@ using LinearAlgebra
         @test norm(x.state) ≈ 1
         @test twox.state == xplus || twox.state == xminus 
     end
+    @testset "Single Site Z > Full" begin
+        matrix = [1 0; 0 -1]
+        x = OperatorSingleSite(2, 2, matrix)
+        y = ExpandToFullHilbertSpace(x)
+
+        @test x.L == 2
+        @test x.j == 2
+        @test y.L == 2
+        @test x.matrix == [1 0; 0 -1]
+        @test y.matrix == [1 0 0 0; 0 -1 0 0; 0 0 1 0; 0 0 0 -1]
+    end
 end
 
-matrix = [1 0; 0 -1]
-x = OperatorSingleSite(2, 2, matrix)
-y = ExpandToFullHilbertSpace(x)
-display(x.matrix)
-display(y.matrix)
