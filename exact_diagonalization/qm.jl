@@ -12,6 +12,7 @@ module QuantumMechanics
     # Operators
     export Operator, OperatorSingleSite
     export IdentityOp, ExpandToFullHilbertSpace
+    export X, Y, Z
 
     abstract type HilbertSpace end
 
@@ -71,12 +72,34 @@ module QuantumMechanics
     end
     mutable struct OperatorSingleSite <: HilbertSpace
         L      :: Integer # Full Number of Lattice Sites
-        j      :: Integer # index of the lattice site its supposed to act on, 1 - indexed!
+        site   :: Integer # index of the lattice site its supposed to act on, 1 - indexed!
         matrix :: Matrix{Complex{Float64}}
     end
 
     function IdentityOp(L :: Integer) :: Operator
         return Operator(L, Diagonal(ones(2^L))) # Alternative to just using I
+    end
+    function X(L :: Integer, site :: Integer) :: OperatorSingleSite
+        if (site > L)
+            throw(DimensionMismatch(string("L larger than site, operator not possible")))
+        end
+
+        _x = [0 1; 1 0]
+        return OperatorSingleSite(L, site, _x)
+    end
+    function Y(L :: Integer, site :: Integer) :: OperatorSingleSite
+        if (site > L)
+            throw(DimensionMismatch(string("L larger than site, operator not possible")))
+        end
+        _y = [0 -1im; 1im 0]
+        return OperatorSingleSite(L, site, _y)
+    end
+    function Z(L :: Integer, site :: Integer) :: OperatorSingleSite
+        if (site > L)
+            throw(DimensionMismatch(string("L larger than site, operator not possible")))
+        end
+        _z = [1 0; 0 -1]
+        return OperatorSingleSite(L, site, _z)
     end
 
     function *(A :: Operator, B :: Operator) :: Operator
@@ -95,9 +118,23 @@ module QuantumMechanics
         return State(A.L, A.matrix * B.state)
     end
 
+    function *(A :: OperatorSingleSite, B :: OperatorSingleSite) :: Operator
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        elseif (A.site != B.site)
+            throw(DomainError("A and B act on different sites, unable to multiply"))
+        end
+
+        return OperatorSingleSite(A.L, A.site, A.matrix * B.matrix)
+    end
+
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
-        sites_before = ntuple(x -> Diagonal(ones(2)), ssp.j - 1)
-        sites_after  = ntuple(x -> Diagonal(ones(2)), ssp.L - ssp.j)
+        if (ssp.site > ssp.L)
+            throw(DimensionMismatch(string("L larger than site, operator invalid")))
+        end
+
+        sites_before = ntuple(x -> Diagonal(ones(2)), ssp.site - 1)
+        sites_after  = ntuple(x -> Diagonal(ones(2)), ssp.L - ssp.site)
         all_matrices = tuple(sites_before..., ssp.matrix, sites_after...)
         return Operator(ssp.L, kron(all_matrices...))
     end

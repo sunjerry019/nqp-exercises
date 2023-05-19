@@ -41,10 +41,33 @@ using LinearAlgebra
         y = ExpandToFullHilbertSpace(x)
 
         @test x.L == 2
-        @test x.j == 2
+        @test x.site == 2
         @test y.L == 2
         @test x.matrix == [1 0; 0 -1]
         @test y.matrix == [1 0 0 0; 0 -1 0 0; 0 0 1 0; 0 0 0 -1]
     end
+    @testset "Single Site > Full Mismatch" begin
+        matrix = [0 1; 1 0]
+        x = OperatorSingleSite(1, 2, matrix)
+        @test x.matrix == matrix
+
+        try
+            y = ExpandToFullHilbertSpace(x)
+        catch e
+            @test typeof(e) == DimensionMismatch
+        end
+    end
+    @testset "Pauli-Matrices" begin
+        x = X(2, 1); y = Y(2, 1); z = Z(2, 1)
+
+        @test x.matrix == [0 1; 1 0]
+        @test y.matrix == [0 -1im; 1im 0]
+        @test z.matrix == [1 0; 0 -1]
+    end
+    # @testset "Identity" begin
+        
+    # end
 end
+
+
 
