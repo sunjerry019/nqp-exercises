@@ -76,7 +76,7 @@ module QuantumMechanics
     end
 
     function IdentityOp(L :: Integer) :: Operator
-        return Operator(L, I) # Julia handles scaling automatically
+        return Operator(L, Diagonal(ones(2^L))) # Alternative to just using I
     end
 
     function *(A :: Operator, B :: Operator) :: Operator
@@ -96,8 +96,8 @@ module QuantumMechanics
     end
 
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
-        sites_before = ntuple(I, ssp.j - 1)
-        sites_after  = ntuple(I, ssp.L - ssp.j)
+        sites_before = ntuple(x -> Diagonal(ones(2)), ssp.j - 1)
+        sites_after  = ntuple(x -> Diagonal(ones(2)), ssp.L - ssp.j)
         all_matrices = tuple(sites_before..., ssp.matrix, sites_after...)
         return Operator(ssp.L, kron(all_matrices...))
     end
