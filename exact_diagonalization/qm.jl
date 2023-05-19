@@ -48,6 +48,12 @@ module QuantumMechanics
         return State(L, vec)
     end
 
+    function GetFerromagneticStateZ(L :: Integer, spinup :: Bool) :: State
+        vec = zeros(Complex{Float64}, 2^L)
+        vec[spinup ? 1 : end] = 1
+        return State(L, vec)
+    end
+
     """
     Returns a random Ferromagnetic state along x
 
@@ -57,6 +63,17 @@ module QuantumMechanics
         # Create a non-normalized eigenstate first
         vec = ones(Complex{Float64}, 2)
         vec[2] = rand(Bool) ? 1 : -1
+
+        # Tensor product it L times
+        args = ntuple(x -> vec, L)
+        fullvec = kron(args...) # Splatting
+
+        return State(L, fullvec/norm(fullvec))
+    end
+    function GetFerromagneticStateX(L :: Integer, spinup :: Bool) :: State
+        # Create a non-normalized eigenstate first
+        vec = ones(Complex{Float64}, 2)
+        vec[2] = spinup ? 1 : -1
 
         # Tensor product it L times
         args = ntuple(x -> vec, L)
@@ -118,7 +135,7 @@ module QuantumMechanics
         return State(A.L, A.matrix * B.state)
     end
 
-    function *(A :: OperatorSingleSite, B :: OperatorSingleSite) :: Operator
+    function *(A :: OperatorSingleSite, B :: OperatorSingleSite) :: OperatorSingleSite
         if (A.L != B.L)
             throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
         elseif (A.site != B.site)
@@ -126,6 +143,13 @@ module QuantumMechanics
         end
 
         return OperatorSingleSite(A.L, A.site, A.matrix * B.matrix)
+    end
+    function *(A :: OperatorSingleSite, B :: State) :: State
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+
+        return ExpandToFullHilbertSpace(A) * B
     end
 
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
