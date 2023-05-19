@@ -94,6 +94,10 @@ module QuantumMechanics
         return dot(A.state, B.state)
     end
 
+    function normalize(A :: State) :: State
+        return State(A.L, A.state/norm(A.state))
+    end
+
     # OPERATORS
     mutable struct Operator <: HilbertSpace
         L      :: Integer # Full Number of Lattice Sites
@@ -145,7 +149,9 @@ module QuantumMechanics
             throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
         end
 
-        return State(A.L, A.matrix * B.state)
+        _state = A.matrix * B.state
+
+        return State(A.L, _state/norm(_state))
     end
 
     function *(A :: OperatorSingleSite, B :: OperatorSingleSite) :: OperatorSingleSite
@@ -262,6 +268,10 @@ module QuantumMechanics
     function ExpandToFullHilbertSpace(ssp :: OperatorSingleSite) :: Operator
         if (ssp.site > ssp.L)
             throw(DimensionMismatch(string("L larger than site, operator invalid")))
+        end
+
+        if (ssp.L == 1)
+            return Operator(ssp.L, ssp.matrix)
         end
 
         sites_before = ntuple(x -> Diagonal(ones(2)), ssp.site - 1)
