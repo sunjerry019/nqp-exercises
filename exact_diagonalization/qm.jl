@@ -124,6 +124,7 @@ module QuantumMechanics
     function IdentityOp(L :: Integer) :: Operator
         return Operator(L, Diagonal(ones(2^L))) # Alternative to just using I
     end
+    
     function X(L :: Integer, site :: Integer) :: OperatorSingleSite
         if (site > L)
             throw(DimensionMismatch(string("L larger than site, operator not possible")))
