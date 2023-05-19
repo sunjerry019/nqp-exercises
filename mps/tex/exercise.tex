@@ -290,9 +290,9 @@ Note that the updates can be made very efficient using the recursive structure o
 	%
 	While sweeping to the right, moving the gauge center from $j\rightarrow j+1$, calculate the contraction $\Omega^j_L = \overset{\shortrightarrow}{\tilde{\mathbf A}}^*_{j}\Omega^{j-1}_L \overset{\shortleftarrow}{\tilde{\mathbf A}}_{j}$ where $\Omega^{j-1}_L$ is the result of the previous contraction and $\Omega^{-1}_L = 1$.
 	%
-	Implement the same operation for a left sweep moving the gauge center from $j\rightarrow j-1$: $\Omega^j_R = \overset{\shortrightarrow}{\mathbf{B}}_{j} \Omega^{j+1}_R \overset{\shortleftarrow}{\tilde{\mathbf{B}}}^*_{j}$ with $\Omega^{L+1}_R = 1$.
+	Implement the same operation for a left sweep moving the gauge center from $j\rightarrow j-1$: $\Omega^j_R = \overset{\shortrightarrow}{\mathbf{B}}_{j} \Omega^{j+1}_R \overset{\shortleftarrow}{\tilde{\mathbf{B}}}^*_{j}$ with $\Omega^{L}_R = 1$.
 	%
-	You need to keep track of the sequence of transfer matrices $\left\{ \Omega^0_L, \ldots \Omega^{j-1}_L\right\}$ and ${\Omega^{j+1}_R},\ldots,\Omega^{L}_R$
+	You need to keep track of the sequence of transfer matrices $\left\{ \Omega^{-1}_L, \ldots \Omega^{j-1}_L\right\}$ and ${\Omega^{j+1}_R},\ldots,\Omega^{L}_R$
 	%
 	\item[(3.c)] \textbf{(4P)}
 	%
