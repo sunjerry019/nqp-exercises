@@ -82,6 +82,14 @@ module QuantumMechanics
         return State(L, fullvec/norm(fullvec))
     end
 
+    function dot(A :: State, B :: State) -> Number
+        if (A.L != B.L)
+            throw(DimensionMismatch(string("Dimensions do not match: ", A.L, " != " , B.L)))
+        end
+        
+        return dot(A.state, B.state)
+    end
+
     # OPERATORS
     mutable struct Operator <: HilbertSpace
         L      :: Integer # Full Number of Lattice Sites
