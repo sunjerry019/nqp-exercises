@@ -250,7 +250,7 @@ In order to simplify the notation, we denote those sets of site matrices satisfy
 %
 We furthermore denote the left fusion of a set of site-matrices by adding an arrow to the left: $\overset{\shortleftarrow}{\mathbf M}_j$ and correspondingly denote the right fusion of a set of site matrices by adding an arrow to the right: $\overset{\shortrightarrow}{\mathbf M}_j$.
 %
-Note that using that notation we have $\overset{\shortleftarrow}{\mathbf A}_j^\dagger = \overset{\shortrightarrow}{\mathbf A}^*_j$ and $\overset{\shortrightarrow}{\mathbf B}_j^\dagger = \overset{\shortleftarrow}{\mathbf B}^*_j$, as well as:
+Note that using that notation we have $\overset{\shortleftarrow}{\mathbf A}_j^\dagger = \overset{\shortrightarrow}{\mathbf A}^*_j$ and $\overset{\shortrightarrow}{\mathbf B}_j^\dagger = \overset{\shortleftarrow}{\mathbf B}^*_j$ where the star denotes the adjoint matrix, as well as:
 \begin{equation}
 	\overset{\shortrightarrow}{\mathbf A}^*_j \overset{\shortleftarrow}{\mathbf A}_j = \mathbb 1_{m_j \times m_j} \quad \text{and} \quad
 	\overset{\shortrightarrow}{\mathbf B}_j \overset{\shortleftarrow}{\mathbf B}^*_j = \mathbb 1_{m_{j-1} \times m_{j-1}} \; .
@@ -290,7 +290,7 @@ Note that the updates can be made very efficient using the recursive structure o
 	%
 	While sweeping to the right, moving the gauge center from $j\rightarrow j+1$, calculate the contraction $\Omega^j_L = \overset{\shortrightarrow}{\tilde{\mathbf A}}^*_{j}\Omega^{j-1}_L \overset{\shortleftarrow}{\tilde{\mathbf A}}_{j}$ where $\Omega^{j-1}_L$ is the result of the previous contraction and $\Omega^{-1}_L = 1$.
 	%
-	Implement the same operation for a left sweep moving the gauge center from $j\rightarrow j-1$: $\Omega^j_R = \overset{\shortrightarrow}{\mathbf{B}}_{j} \Omega^{j+1}_R \overset{\shortleftarrow}{\tilde{\mathbf{B}}}^*_{j+1}$ with $\Omega^L_R = 1$.
+	Implement the same operation for a left sweep moving the gauge center from $j\rightarrow j-1$: $\Omega^j_R = \overset{\shortrightarrow}{\mathbf{B}}_{j} \Omega^{j+1}_R \overset{\shortleftarrow}{\tilde{\mathbf{B}}}^*_{j}$ with $\Omega^{L+1}_R = 1$.
 	%
 	You need to keep track of the sequence of transfer matrices $\left\{ \Omega^0_L, \ldots \Omega^{j-1}_L\right\}$ and ${\Omega^{j+1}_R},\ldots,\Omega^{L}_R$
 	%
