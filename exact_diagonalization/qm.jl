@@ -4,7 +4,9 @@ module QuantumMechanics
     using Random
     using LinearAlgebra
 
-    export GetRandomState, GetFerromagneticStateZ
+    import Base: *
+
+    export GetRandomState, GetFerromagneticStateZ, GetFerromagneticStateX, *
 
     abstract type HilbertSpace end
 
@@ -13,6 +15,11 @@ module QuantumMechanics
         state :: Vector{Complex{Float64}}  
         # The actual state vector, quantization axis = z
         # We use the tensor product basis
+    end
+
+    function *(A :: Number, B :: State) 
+        C = State(B.L, A * B.state)
+        return C
     end
 
     function GetRandomState(L :: Integer) :: State
@@ -32,5 +39,22 @@ module QuantumMechanics
         vec = zeros(Complex{Float64}, 2^L)
         vec[rand(Bool) ? 1 : end] = 1
         return State(L, vec)
+    end
+
+    """
+    Returns a random Ferromagnetic state along x
+
+    We use the kronecker (tensor) product this time.
+    """
+    function GetFerromagneticStateX(L :: Integer) :: State
+        # Create a non-normalized eigenstate first
+        vec = ones(Complex{Float64}, 2)
+        vec[2] = rand(Bool) ? 1 : -1
+
+        # Tensor product it L times
+        args = ntuple(x -> vec, L)
+        fullvec = kron(args...)
+
+        return State(L, fullvec/norm(fullvec))
     end
 end
