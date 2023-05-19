@@ -71,7 +71,7 @@ using LinearAlgebra
     end
 end
 
-@testset "Operator on States" begin
+@testset "Operator on States" verbose=true begin
     @testset "Single Site spin flip" begin
         _state = GetFerromagneticStateZ(3)
         _spinflip_1 = X(3, 1)
@@ -87,6 +87,14 @@ end
         @test  _newstate.state == _correctstate
     end
 end
+
+@testset "Scalar Product on H" verbose=true begin
+    @testset "Norm" begin
+        x = GetRandomState(5)
+        @test dot(x,x) ≈ norm(x.state)
+    end
+end
+
 
 
 
