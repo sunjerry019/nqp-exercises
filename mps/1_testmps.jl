@@ -28,7 +28,7 @@ end
         n = abs(rand(Int, 1)[1] % 10) + 1
         d = abs(rand(Int, 1)[1] % 10) + 1
 
-        M = create_seq_matrix_set(Integer, m, n, d)
+        M = create_random_matrix_set(Int, m, n, d)
         Q = fuse_left(M)
         
         @test size(Q) == (m*d, n)
@@ -41,6 +41,18 @@ end
         # Since Julia is 1-indexed, (k,alpha) = (k-1)*m + (a-1) + 1 = (k-1)*m + a
         @test M[_alpha, _beta, _k] == Q[(_k-1)*m + _alpha, _beta]
     end
+    
+    @testset "Splitting" begin
+        m = abs(rand(Int, 1)[1] % 10) + 1
+        n = abs(rand(Int, 1)[1] % 10) + 1
+        d = abs(rand(Int, 1)[1] % 10) + 1
+
+        M = create_random_matrix_set(Int, m, n, d)
+        Q = fuse_left(M)
+        P = split_left(Q, d)
+
+        @test all(M .== P)
+    end
 end
 
 @testset "Right" verbose=true begin
@@ -49,7 +61,7 @@ end
         n = abs(rand(Int, 1)[1] % 10) + 1
         d = abs(rand(Int, 1)[1] % 10) + 1
 
-        M = create_seq_matrix_set(Integer, m, n, d)
+        M = create_random_matrix_set(Int, m, n, d)
         Q = fuse_right(M)
         
         @test size(Q) == (m, n*d)
@@ -61,5 +73,17 @@ end
 
         # Since Julia is 1-indexed, (k,b) = (k-1)*n + (b-1) + 1 = (k-1)*n + b
         @test M[_alpha, _beta, _k] == Q[_alpha, (_k-1)*n +  _beta]
+    end
+
+    @testset "Splitting" begin
+        m = abs(rand(Int, 1)[1] % 10) + 1
+        n = abs(rand(Int, 1)[1] % 10) + 1
+        d = abs(rand(Int, 1)[1] % 10) + 1
+
+        M = create_random_matrix_set(Int, m, n, d)
+        Q = fuse_right(M)
+        P = split_right(Q, d)
+
+        @test all(M .== P)
     end
 end
