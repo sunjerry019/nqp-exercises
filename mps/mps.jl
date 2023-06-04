@@ -29,4 +29,14 @@ module MatrixProductStates
         # B = [A[(kx%alpha)+1, n+1, (kx÷alpha)+1] for kx in 0:(alpha*k-1), n in 0:(beta-1)]
         return B
     end
+
+    function fuse_right(A :: Array)
+        # A[alpha, beta, k]
+        alpha, beta, k = size(A)
+        B = permutedims(A, [1,3,2])
+        B = reshape(B, (alpha*k, beta))
+
+        # B = [A[(kx%alpha)+1, n+1, (kx÷alpha)+1] for kx in 0:(alpha*k-1), n in 0:(beta-1)]
+        return B
+    end
 end
