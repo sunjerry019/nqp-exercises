@@ -5,6 +5,7 @@ module MatrixProductStates
 
     export create_random_matrix_set, create_seq_matrix_set
     export fuse_left, fuse_right
+    export split_left, split_right
 
     # We just use the Array objects from Julia
     # Ways to create multidimensional arrays
@@ -20,7 +21,8 @@ module MatrixProductStates
         return M_kab
     end
 
-    function fuse_left(A :: Array)
+# FUSING
+    function fuse_left(A :: Array) :: Array
         # A[alpha, beta, k]
         alpha, beta, k = size(A)
         B = permutedims(A, [1,3,2])
@@ -30,11 +32,37 @@ module MatrixProductStates
         return B
     end
 
-    function fuse_right(A :: Array)
+    function fuse_right(A :: Array) :: Array
         # A[alpha, beta, k]
         alpha, beta, k = size(A)
         B = permutedims(A, [1,2,3])
-        B = reshape(B, (alpha, beta*k))
+        B = reshape(A, (alpha, beta*k))
+        return B
+    end
+
+# SPLITTING
+    function split_left(A :: Array, d :: Integer) :: Array
+        # A is M(m*d, n)
+
+        # A[alpha, beta, k]
+        md, n = size(A)
+        if (md % d != 0) throw(DimensionMismatch(string("d invalid: ", md, " not divisible by " , d))) end
+
+        m = md ÷ d
+        B = reshape(A, (m, d, n))
+        B = permutedims(B, [1,3,2])
+        return B
+    end
+
+    function split_right(A :: Array, d :: Integer) :: Array
+        # A is M(m, n*d)
+
+        # A[alpha, beta, k]
+        m, nd = size(A)
+        if (nd % d != 0) throw(DimensionMismatch(string("d invalid: ", nd, " not divisible by " , d))) end
+
+        n = nd ÷ d
+        B = reshape(A, (m, n, d))
         return B
     end
 end
