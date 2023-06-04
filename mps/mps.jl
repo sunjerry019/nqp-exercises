@@ -4,7 +4,7 @@ module MatrixProductStates
     using LinearAlgebra
 
     export create_random_matrix_set, create_seq_matrix_set
-    export fuse_left
+    export fuse_left, fuse_right
 
     # We just use the Array objects from Julia
     # Ways to create multidimensional arrays
@@ -33,10 +33,8 @@ module MatrixProductStates
     function fuse_right(A :: Array)
         # A[alpha, beta, k]
         alpha, beta, k = size(A)
-        B = permutedims(A, [1,3,2])
-        B = reshape(B, (alpha*k, beta))
-
-        # B = [A[(kx%alpha)+1, n+1, (kx÷alpha)+1] for kx in 0:(alpha*k-1), n in 0:(beta-1)]
+        B = permutedims(A, [1,2,3])
+        B = reshape(B, (alpha, beta*k))
         return B
     end
 end
