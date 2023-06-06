@@ -50,13 +50,13 @@ using LinearAlgebra
     @testset "Random State" begin
         m = abs(rand(Int, 1)[1] % 5) + 1 # min 1
         d = abs(rand(Int, 1)[1] % 5) + 1 # min 1
-        L = abs(rand(Int, 1)[1] % 5) + 1 # min 1
+        L = abs(rand(Int, 1)[1] % 5) + 1 # min 2
 
         mp_state = create_random_state(L, d, m)
 
         k = abs(rand(Int, 1)[1] % L) + 1
 
-        @test mp_state.m == m
+        @test mp_state.m == m # if L == 1, then m = 1 regardless
         @test mp_state.L == L
         @test (k == 1) ? size(mp_state.tensor_sets[k]) == (1,m,d) : ((k == L) ? size(mp_state.tensor_sets[k]) == (m,1,d) : size(mp_state.tensor_sets[k]) == (m,m,d))
         @test length(mp_state.tensor_sets) == L
@@ -87,9 +87,9 @@ end
         @test_throws DomainError make_orthogonal_left!(s, L)
     
         make_orthogonal_left!(s, 1)
-        new = collapse_singular_dimension(s.tensor_sets[1])
+        new = fuse_left(s.tensor_sets[1])
 
-        @test (new * new') ≈ I atol=10e-6
+        @test (new' * new) ≈ I atol=10e-6
     end
     @testset "Right Orthogonal" begin
         # create_random_state(L,d,m)
@@ -102,7 +102,7 @@ end
         @test_throws DomainError make_orthogonal_right!(s, 1)
     
         make_orthogonal_right!(s, L)
-        new = collapse_singular_dimension(s.tensor_sets[L])
+        new = fuse_right(s.tensor_sets[L])
 
         @test (new * new') ≈ I atol=10e-6
     end
