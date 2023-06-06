@@ -81,7 +81,7 @@ module MatrixProductStates
         L           :: Integer # number of lattice sites
         m           :: Integer # max bond dimensions
         ds          :: Vector{Integer} # the dimension of the local hilbert space
-        tensor_sets :: Vector{Array}
+        tensor_sets :: Vector{Array} # each tensor indexed with A[alpha, beta, k]
     end
 
     function construct_MPS(tensor_sets :: Vector{Array}) :: MPS
@@ -153,5 +153,27 @@ module MatrixProductStates
         end
 
         return construct_MPS(arr)
+    end
+
+    function make_orthogonal_left!(state :: MPS, site :: Integer) :: MPS
+        # in-place function
+
+        if (site < 1 || site > (state.L - 1))
+            throw(DomainError("LeftOrth: Site ", site, " not in range 1:(", state.L, "-1)"))
+        end
+
+        _tensor       = state.tensor_sets[site]
+        _tensor_right = state.tensor_sets[site + 1]
+
+        _fused_matrix = fuse_left(_tensor)
+        _U, _Svals, _Vt = svd(_fused_matrix)
+
+        _new_ML = split_left(_U, state.ds[site])
+        _new_MR = Diagonal(_Svals)*_Vt*_tensor_right
+
+        state.tensor_sets[site]   = _new_ML
+        state.tensor_sets[site+1] = _new_MR
+
+        return state
     end
 end

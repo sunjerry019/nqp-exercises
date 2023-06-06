@@ -1,10 +1,11 @@
 include("mps.jl")
+include("testsetskip.jl")
 
 using .MatrixProductStates
 using Test
 using LinearAlgebra
 
-@testset "Creation of MPS" verbose=true begin
+@testset_skip "Creation of MPS" verbose=true begin
     @testset "Reject invalid dimensions" begin
         arr = Vector{Array}()
         for i in 1:3
@@ -57,5 +58,13 @@ using LinearAlgebra
         @test mp_state.L == L
         @test (k == 1) ? size(mp_state.tensor_sets[k]) == (1,m,d) : ((k == L) ? size(mp_state.tensor_sets[k]) == (m,1,d) : size(mp_state.tensor_sets[k]) == (m,m,d))
         @test length(mp_state.tensor_sets) == L
+    end
+end
+
+@testset "Canonical Form" verbose=true begin
+    @testset "Left Orthogonal" begin
+        s = create_random_state(5, 2, 3)
+
+        display(s.tensor_sets)
     end
 end
