@@ -19,7 +19,8 @@ module MatrixProductStates
     # https://stackoverflow.com/questions/25561390/declare-and-initialise-3-dimensional-array
     function create_random_matrix_set(T :: Type, alpha :: Integer, beta :: Integer, d :: Integer) :: Array
         M_ab  = rand(T, alpha, beta)
-        M_kab = cat(ntuple(x -> M_ab, d)..., dims = 3)
+        # M_kab = cat(ntuple(x -> M_ab, d)..., dims = 3)
+        M_kab = cat([rand(T, alpha, beta) for x in 1:d]..., dims = 3)
         return M_kab
     end
 
