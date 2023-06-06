@@ -119,7 +119,7 @@ module MatrixProductStates
             if sites > 2
                 for i in 1:(sites - 2)
                     # We simplify by creating square matrices
-                    push!(arr, create_seq_matrix_set(Complex{Float64}, m, m, local_dof))
+                    push!(arr, create_random_matrix_set(Complex{Float64}, m, m, local_dof))
                 end
             end
             push!(arr, create_random_matrix_set(Complex{Float64}, m, 1, local_dof))
