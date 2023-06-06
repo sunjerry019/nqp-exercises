@@ -1,3 +1,5 @@
+#!/usr/bin/env julia
+
 include("mps.jl")
 include("testsetskip.jl")
 
