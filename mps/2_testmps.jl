@@ -5,7 +5,7 @@ using .MatrixProductStates
 using Test
 using LinearAlgebra
 
-@testset_skip "Creation of MPS" verbose=true begin
+@testset "Creation of MPS" verbose=true begin
     @testset "Reject invalid dimensions" begin
         arr = Vector{Array}()
         for i in 1:3
@@ -61,7 +61,7 @@ using LinearAlgebra
     end
 end
 
-@testset_skip "Collapse Singular Dimension" begin
+@testset "Collapse Singular Dimension" begin
     ns = create_seq_matrix_set(Int16, 2,3,4)
     s  = create_seq_matrix_set(Int16, 2,1,3)
     kk = create_seq_matrix_set(Int16, 2,3,1)
@@ -94,7 +94,7 @@ end
         m = abs(rand(Int, 1)[1] % 5) + 1 # min 1
         d = abs(rand(Int, 1)[1] % 5) + 1 # min 1
         L = abs(rand(Int, 1)[1] % 5) + 2 # min 2
-        
+
         s = create_random_state(L, 3, 2)
 
         @test_throws DomainError make_orthogonal_right!(s, 1)
