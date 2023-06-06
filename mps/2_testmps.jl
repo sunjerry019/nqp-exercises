@@ -91,7 +91,10 @@ end
     end
     @testset "Right Orthogonal" begin
         # create_random_state(L,d,m)
-        L = 5
+        m = abs(rand(Int, 1)[1] % 5) + 1 # min 1
+        d = abs(rand(Int, 1)[1] % 5) + 1 # min 1
+        L = abs(rand(Int, 1)[1] % 5) + 2 # min 2
+        
         s = create_random_state(L, 3, 2)
 
         @test_throws DomainError make_orthogonal_right!(s, 1)
@@ -102,3 +105,5 @@ end
         @test (new * new') ≈ I atol=10e-6
     end
 end
+# Would also be good to check if the final matrices still multiply to give the same tensor
+# Not done due to time-constraints, and not explicitly in the problem sheet
