@@ -13,6 +13,9 @@ module MatrixProductStates
     export create_random_matrix_set, create_seq_matrix_set
     export fuse_left, fuse_right
     export split_left, split_right
+    export collapse_singular_dimension
+
+    # INDEXING: A[alpha, beta, k]
 
     # We just use the Array objects from Julia
     # Ways to create multidimensional arrays
@@ -72,6 +75,22 @@ module MatrixProductStates
         n = nd ÷ d
         B = reshape(A, (m, n, d))
         return B
+    end
+
+    # COLLAPSE DIM 1
+    function collapse_singular_dimension(A :: Array) :: Array
+        # Collapse the first dimension that is equal to 1
+        _size = collect(size(A))
+
+        idx = findfirst(item -> item == 1, _size)
+
+        if idx == nothing
+            throw(DimensionMismatch("At least one dimension should be 1"))
+        end
+
+        deleteat!(_size, idx)
+
+        return reshape(A, _size...)
     end
 
     export MPS
@@ -156,6 +175,7 @@ module MatrixProductStates
         return construct_MPS(arr)
     end
 
+    export make_orthogonal_left!
     function make_orthogonal_left!(state :: MPS, site :: Integer) :: MPS
         # in-place function
 
@@ -170,7 +190,7 @@ module MatrixProductStates
         _U, _Svals, _Vt = svd(_fused_matrix)
 
         _new_ML = split_left(_U, state.ds[site])
-        _new_MR = Diagonal(_Svals)*_Vt*_tensor_right
+        _new_MR = split_right(Diagonal(_Svals)*_Vt*fuse_right(_tensor_right), state.ds[site + 1])
 
         state.tensor_sets[site]   = _new_ML
         state.tensor_sets[site+1] = _new_MR

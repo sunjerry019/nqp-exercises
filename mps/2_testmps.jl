@@ -61,10 +61,28 @@ using LinearAlgebra
     end
 end
 
-@testset "Canonical Form" verbose=true begin
-    @testset "Left Orthogonal" begin
-        s = create_random_state(5, 2, 3)
+@testset "Collapse Singular Dimension" begin
+    ns = create_seq_matrix_set(Int16, 2,3,4)
+    s  = create_seq_matrix_set(Int16, 2,1,3)
 
-        display(s.tensor_sets)
-    end
+    @test_throws DimensionMismatch collapse_singular_dimension(ns)
+
+    ss = collapse_singular_dimension(s)
+    @test size(ss) == (2,3)
 end
+
+# @testset "Canonical Form" verbose=true begin
+#     @testset "Left Orthogonal" begin
+#         # create_random_state(L,d,m)
+#         s = create_random_state(5, 3, 2)
+
+#         old = transpose(fuse_left(s.tensor_sets[1]))
+#         display(old * old')
+
+    
+#         make_orthogonal_left!(s, 1)
+#         # new = transpose(fuse_left(s.tensor_sets[1]))
+#         new = reshape(s.tensor_sets[1], (2,3))
+#         display(new * new')
+#     end
+# end
