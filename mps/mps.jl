@@ -80,12 +80,13 @@ module MatrixProductStates
     # COLLAPSE DIM 1
     function collapse_singular_dimension(A :: Array) :: Array
         # Collapse the first dimension that is equal to 1
+        # This is guaranteed to be either alpha or beta, since k is the last element
         _size = collect(size(A))
 
-        idx = findfirst(item -> item == 1, _size)
-
+        # we only look at alpha or beta
+        idx = findfirst(item -> item == 1, collect(_size[1:(end-1)]))
         if idx == nothing
-            throw(DimensionMismatch("At least one dimension should be 1"))
+            throw(DimensionMismatch("At least one dimension (except k) should be 1"))
         end
 
         deleteat!(_size, idx)
@@ -175,25 +176,49 @@ module MatrixProductStates
         return construct_MPS(arr)
     end
 
-    export make_orthogonal_left!
+    export make_orthogonal_left!, make_orthogonal_right!
     function make_orthogonal_left!(state :: MPS, site :: Integer) :: MPS
         # in-place function
 
         if (site < 1 || site > (state.L - 1))
-            throw(DomainError("LeftOrth: Site ", site, " not in range 1:(", state.L, "-1)"))
+            throw(DomainError("LeftOrth: Site $site not in range 1:($(state.L)-1)"))
         end
 
         _tensor       = state.tensor_sets[site]
         _tensor_right = state.tensor_sets[site + 1]
 
         _fused_matrix = fuse_left(_tensor)
-        _U, _Svals, _Vt = svd(_fused_matrix)
+        _fact = svd(_fused_matrix)
+        _U, _Svals, _Vt = _fact.U, _fact.S, _fact.Vt
 
         _new_ML = split_left(_U, state.ds[site])
-        _new_MR = split_right(Diagonal(_Svals)*_Vt*fuse_right(_tensor_right), state.ds[site + 1])
+        _new_MR = split_right(Diagonal(_Svals) * _Vt * fuse_right(_tensor_right), state.ds[site + 1])
 
         state.tensor_sets[site]   = _new_ML
         state.tensor_sets[site+1] = _new_MR
+
+        return state
+    end
+
+    function make_orthogonal_right!(state :: MPS, site :: Integer) :: MPS
+        # in-place function
+
+        if (site < 2 || site > state.L)
+            throw(DomainError("RightOrth: Site $site not in range 2:$(state.L)"))
+        end
+
+        _tensor      = state.tensor_sets[site]
+        _tensor_left = state.tensor_sets[site-1]
+
+        _fused_matrix = fuse_right(_tensor)
+        _fact = svd(_fused_matrix)
+        _U, _Svals, _Vt = _fact.U, _fact.S, _fact.Vt
+
+        _new_MR = split_right(_Vt, state.ds[site])
+        _new_ML = split_left(fuse_left(_tensor_left) * _U * Diagonal(_Svals), state.ds[site - 1])
+
+        state.tensor_sets[site-1] = _new_ML
+        state.tensor_sets[site]   = _new_MR
 
         return state
     end

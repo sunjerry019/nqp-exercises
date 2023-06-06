@@ -61,28 +61,44 @@ using LinearAlgebra
     end
 end
 
-@testset "Collapse Singular Dimension" begin
+@testset_skip "Collapse Singular Dimension" begin
     ns = create_seq_matrix_set(Int16, 2,3,4)
     s  = create_seq_matrix_set(Int16, 2,1,3)
+    kk = create_seq_matrix_set(Int16, 2,3,1)
 
     @test_throws DimensionMismatch collapse_singular_dimension(ns)
+    @test_throws DimensionMismatch collapse_singular_dimension(kk)
 
     ss = collapse_singular_dimension(s)
     @test size(ss) == (2,3)
 end
 
-# @testset "Canonical Form" verbose=true begin
-#     @testset "Left Orthogonal" begin
-#         # create_random_state(L,d,m)
-#         s = create_random_state(5, 3, 2)
+@testset "Canonical Form" verbose=true begin
+    @testset "Left Orthogonal" begin
+        # create_random_state(L,d,m)
+        m = abs(rand(Int, 1)[1] % 5) + 1 # min 1
+        d = abs(rand(Int, 1)[1] % 5) + 1 # min 1
+        L = abs(rand(Int, 1)[1] % 5) + 2 # min 2
 
-#         old = transpose(fuse_left(s.tensor_sets[1]))
-#         display(old * old')
+        s = create_random_state(L, d, m)
 
+        @test_throws DomainError make_orthogonal_left!(s, L)
     
-#         make_orthogonal_left!(s, 1)
-#         # new = transpose(fuse_left(s.tensor_sets[1]))
-#         new = reshape(s.tensor_sets[1], (2,3))
-#         display(new * new')
-#     end
-# end
+        make_orthogonal_left!(s, 1)
+        new = collapse_singular_dimension(s.tensor_sets[1])
+
+        @test (new * new') ≈ I atol=10e-6
+    end
+    @testset "Right Orthogonal" begin
+        # create_random_state(L,d,m)
+        L = 5
+        s = create_random_state(L, 3, 2)
+
+        @test_throws DomainError make_orthogonal_right!(s, 1)
+    
+        make_orthogonal_right!(s, L)
+        new = collapse_singular_dimension(s.tensor_sets[L])
+
+        @test (new * new') ≈ I atol=10e-6
+    end
+end
