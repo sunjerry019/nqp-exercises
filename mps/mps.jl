@@ -66,8 +66,36 @@ module MatrixProductStates
         return B
     end
 
+    export MPS
+    export construct_MPS
+
     # MPS "Class"
     mutable struct MPS
-        
+        L           :: Integer # number of lattice sites
+        m           :: Integer # max bond dimensions
+        ds          :: Vector{Integer} # the dimension of the local hilbert space
+        tensor_sets :: Vector{Array}
+    end
+
+    function construct_MPS(tensor_sets :: Vector{Array}) :: MPS
+        maxm = 0
+        ds = Vector{Integer}()
+
+        L = length(tensor_sets)
+        for (i, tensor) in enumerate(tensor_sets)
+            _m, _n, _k = size(tensor)
+
+            # Check if the first and last
+            if ((i == 1) && ((_m != 1) || (_n != size(tensor_sets[i+1])[1]))) || ((i == L) && ((_n != 1) || (_m != size(tensor_sets[i-1])[2])))
+                throw(DimensionMismatch("The ends of the MPS must be such that the MPS contracts into a number!"))
+            elseif (i != 1) && (i != L) && (_m != _n)
+                throw(DimensionMismatch("Bulk should be described by square matrices!"))
+            end
+
+            push!(ds, _k)
+            maxm = max(_m, maxm)
+        end
+
+        return MPS(L, maxm, ds, tensor_sets)
     end
 end
