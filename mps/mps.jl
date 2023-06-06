@@ -21,7 +21,7 @@ module MatrixProductStates
         return M_kab
     end
 
-# FUSING
+    # FUSING
     function fuse_left(A :: Array) :: Array
         # A[alpha, beta, k]
         alpha, beta, k = size(A)
@@ -40,7 +40,7 @@ module MatrixProductStates
         return B
     end
 
-# SPLITTING
+    # SPLITTING
     function split_left(A :: Array, d :: Integer) :: Array
         # A is M(m*d, n)
 
@@ -64,5 +64,10 @@ module MatrixProductStates
         n = nd ÷ d
         B = reshape(A, (m, n, d))
         return B
+    end
+
+    # MPS "Class"
+    mutable struct MPS
+        
     end
 end
