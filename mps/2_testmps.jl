@@ -56,5 +56,6 @@ using LinearAlgebra
         @test mp_state.m == m
         @test mp_state.L == L
         @test (k == 1) ? size(mp_state.tensor_sets[k]) == (1,m,d) : ((k == L) ? size(mp_state.tensor_sets[k]) == (m,1,d) : size(mp_state.tensor_sets[k]) == (m,m,d))
+        @test length(mp_state.tensor_sets) == L
     end
 end
