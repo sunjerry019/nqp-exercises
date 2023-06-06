@@ -1,5 +1,12 @@
 #!/usr/bin/env julia
 
+"""
+[Question] When I create a MPS chain of (1xm, mxm, mxm...mxm, mx1), m is the number of 
+singular values after a SVD. Is that the same as the local DoF?
+
+For the case of spin 1/2 particles, that seems to be the case?
+"""
+
 module MatrixProductStates
     using LinearAlgebra
 
@@ -67,7 +74,7 @@ module MatrixProductStates
     end
 
     export MPS
-    export construct_MPS
+    export construct_MPS, create_random_state
 
     # MPS "Class"
     mutable struct MPS
@@ -86,10 +93,10 @@ module MatrixProductStates
             _m, _n, _k = size(tensor)
 
             # Check if the first and last
-            if ((i == 1) && ((_m != 1) || (_n != size(tensor_sets[i+1])[1]))) || ((i == L) && ((_n != 1) || (_m != size(tensor_sets[i-1])[2])))
+            if ((i == 1) && (_m != 1)) || (i == L) && ((_n != 1))
                 throw(DimensionMismatch("The ends of the MPS must be such that the MPS contracts into a number!"))
-            elseif (i != 1) && (i != L) && (_m != _n)
-                throw(DimensionMismatch("Bulk should be described by square matrices!"))
+            elseif ((i < L) && (_n != size(tensor_sets[i+1])[1])) || ((i > 1) && (_m != size(tensor_sets[i-1])[2]))
+                throw(DimensionMismatch("Neighbouring dimensions should match"))
             end
 
             push!(ds, _k)
@@ -97,5 +104,54 @@ module MatrixProductStates
         end
 
         return MPS(L, maxm, ds, tensor_sets)
+    end
+
+    function create_random_state(sites :: Integer, local_dof :: Integer, m :: Integer) :: MPS
+        # create_random_state(L,d,m)
+
+        # This function simplifies by using square matrices for the bulk
+        arr = Vector{Array}()
+        if sites == 1
+            # m is ignored
+            push!(arr, create_random_matrix_set(Complex{Float64}, 1, 1, local_dof))
+        elseif sites >= 2
+            push!(arr, create_random_matrix_set(Complex{Float64}, 1, m, local_dof))
+            if sites > 2
+                for i in 1:(sites - 2)
+                    # We simplify by creating square matrices
+                    push!(arr, create_seq_matrix_set(Complex{Float64}, m, m, local_dof))
+                end
+            end
+            push!(arr, create_random_matrix_set(Complex{Float64}, m, 1, local_dof))
+        end
+        
+        return construct_MPS(arr)
+    end
+
+    function create_random_state(sites :: Integer, local_dof :: Integer, m :: Array{Integer}) :: MPS
+        # create_random_state(L,d,m[])
+
+        # We assume the alpha_(-1) i.e. the first alpha is zero 
+        # NOTE: we need (L+1) alphas to describe the matrices, not L as described in the question
+
+        # This function creates from an array of alpha_js
+        if length(m) != sites
+            throw(DimensionMismatch("length of alpha_js must be the same as number of sites"))
+        elseif m[sites] != 1
+            throw(DimensionMismatch("alpha_L must be 1 so that the MPS contracts into a number"))
+        end
+
+        arr = Vector{Array}()
+        erste = true
+        for i in LinearIndices(m)
+            if erste
+                erste = false
+                push!(arr, create_seq_matrix_set(Complex{Float64}, 1, m[i], local_dof))
+            else
+                push!(arr, create_seq_matrix_set(Complex{Float64}, m[i-1], m[i], local_dof))
+            end
+        end
+
+        return construct_MPS(arr)
     end
 end
