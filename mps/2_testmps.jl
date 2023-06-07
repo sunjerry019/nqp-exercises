@@ -50,16 +50,52 @@ using LinearAlgebra
     @testset "Random State" begin
         m = abs(rand(Int, 1)[1] % 5) + 1 # min 1
         d = abs(rand(Int, 1)[1] % 5) + 1 # min 1
-        L = abs(rand(Int, 1)[1] % 5) + 1 # min 2
+        L = abs(rand(Int, 1)[1] % 5) + 1 # min 1
 
         mp_state = create_random_state(L, d, m)
 
         k = abs(rand(Int, 1)[1] % L) + 1
 
-        @test mp_state.m == m # if L == 1, then m = 1 regardless
+        @test mp_state.m == (L == 1 ? 1 : m) # if L == 1, then m = 1 regardless
         @test mp_state.L == L
-        @test (k == 1) ? size(mp_state.tensor_sets[k]) == (1,m,d) : ((k == L) ? size(mp_state.tensor_sets[k]) == (m,1,d) : size(mp_state.tensor_sets[k]) == (m,m,d))
+        @test (k == 1) ? size(mp_state.tensor_sets[k]) == (1,(L == 1 ? 1 : m),d) : ((k == L) ? size(mp_state.tensor_sets[k]) == (m,1,d) : size(mp_state.tensor_sets[k]) == (m,m,d))
         @test length(mp_state.tensor_sets) == L
+    end
+
+    @testset "Random State (Exact representation)" begin
+        function check_size(ist_tensor_sets :: Vector{Array}, soll_sizes :: Vector{Tuple{Int64, Int64, Int64}})
+            L = length(ist_tensor_sets)
+            if L != length(soll_sizes)
+                return false
+            end
+            
+            for i in LinearIndices(soll_sizes)
+                if size(ist_tensor_sets[i]) != soll_sizes[i]
+                    return false
+                end
+            end
+            return true
+        end
+
+        s = create_random_state(6, 2) # L, local_dof(k)
+        @test s.L == 6
+        @test s.m == 8
+        @test check_size(s.tensor_sets, [(1,2,2),(2,4,2),(4,8,2),(8,4,2),(4,2,2),(2,1,2)])
+
+        s = create_random_state(7, 2) # L, local_dof(k)
+        @test s.L == 7
+        @test s.m == 8
+        @test check_size(s.tensor_sets, [(1,2,2),(2,4,2),(4,8,2),(8,8,2),(8,4,2),(4,2,2),(2,1,2)])
+
+        s = create_random_state(2, 2) # L, local_dof(k)
+        @test s.L == 2
+        @test s.m == 2
+        @test check_size(s.tensor_sets, [(1,2,2),(2,1,2)])
+
+        s = create_random_state(1, 2) # L, local_dof(k)
+        @test s.L == 1
+        @test s.m == 1
+        @test check_size(s.tensor_sets, [(1,1,2)])
     end
 end
 

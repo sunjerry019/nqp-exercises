@@ -1,12 +1,5 @@
 #!/usr/bin/env julia
 
-"""
-[Question] When I create a MPS chain of (1xm, mxm, mxm...mxm, mx1), m is the number of 
-singular values after a SVD. Is that the same as the local DoF?
-
-For the case of spin 1/2 particles, that seems to be the case?
-"""
-
 module MatrixProductStates
     using LinearAlgebra
 
@@ -104,7 +97,7 @@ module MatrixProductStates
 
         # we only look at alpha or beta
         idx = findfirst(item -> item == 1, collect(_size[1:(end-1)]))
-        if idx == nothing
+        if idx === nothing
             throw(DimensionMismatch("At least one dimension (except k) should be 1"))
         end
 
@@ -120,7 +113,7 @@ module MatrixProductStates
     mutable struct MPS
         L           :: Integer # number of lattice sites
         m           :: Integer # max bond dimensions
-        ds          :: Vector{Integer} # the dimension of the local hilbert space
+        ds          :: Vector{<:Integer} # the dimension of the local hilbert space
         tensor_sets :: Vector{Array} # each tensor indexed with A[alpha, beta, k]
     end
 
@@ -146,6 +139,27 @@ module MatrixProductStates
         return MPS(L, maxm, ds, tensor_sets)
     end
 
+    function create_random_state(sites :: Integer, local_dof :: Integer) :: MPS
+        # For the first site, m must be k to encode all the information (exact representation)
+        # Understanding: we start from a tensor with L legs, then try to split it
+        # (1..j-1) = (m) - X - Y - (n) - (j..L)
+        # Middle dimension is min(m,n) (think SVD)
+        # Then the dimensions is 1xk, k*k2, k2xk3 .... then goes back down to 1
+
+        # For use with actual states
+
+        half = (sites - 1) ÷ 2
+        is_even = (sites % 2 == 0)
+        middle = sites ÷ 2
+
+        ascending_arr = [ local_dof^x for x ∈ 1:half ]
+        middle_element = is_even ? [ local_dof^middle ] : []
+        m_arr = vcat(ascending_arr, middle_element, reverse(ascending_arr), [1])
+        m_arr = Int64.(m_arr) # broadcast to Int64 (https://stackoverflow.com/a/48818789/3211506)
+
+        return create_random_state(sites, local_dof, m_arr)
+    end
+
     function create_random_state(sites :: Integer, local_dof :: Integer, m :: Integer) :: MPS
         # create_random_state(L,d,m)
 
@@ -168,7 +182,7 @@ module MatrixProductStates
         return construct_MPS(arr)
     end
 
-    function create_random_state(sites :: Integer, local_dof :: Integer, m :: Array{Integer}) :: MPS
+    function create_random_state(sites :: Integer, local_dof :: Integer, m :: Array{<:Integer}) :: MPS
         # create_random_state(L,d,m[])
 
         # We assume the alpha_(-1) i.e. the first alpha is zero 
