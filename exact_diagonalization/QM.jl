@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 
-module QuantumMechanics
+module QM
     using Random
     using LinearAlgebra
 

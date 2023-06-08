@@ -1,10 +1,9 @@
 #!/usr/bin/env julia
 
-include("qm.jl")
-include("transversefieldising.jl")
+push!(LOAD_PATH, "./")
 
-using .QuantumMechanics
-using .TransverseFieldIsing
+using QM
+using TransverseFieldIsing
 using Test
 
 @testset "2.a) Hamiltonian Tests" verbose=true begin
@@ -44,7 +43,7 @@ end
 # end
 
 # (2.d)
-function approxequal(A :: TransverseFieldIsing.QuantumMechanics.State, B :: State) :: Bool
+function approxequal(A :: State, B :: State) :: Bool
     return (A.L == B.L) ? (isapprox(A.state, B.state, rtol = 0.0000001)) : false
 end
 
