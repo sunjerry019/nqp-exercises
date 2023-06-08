@@ -1,8 +1,8 @@
 #!/usr/bin/env julia
 
-include("qm.jl")
+push!(LOAD_PATH, "./")
 
-using .QuantumMechanics
+using QM
 using Test
 using Random
 using LinearAlgebra

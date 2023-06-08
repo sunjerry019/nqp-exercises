@@ -1,7 +1,14 @@
 #!/usr/bin/env julia
 
+push!(LOAD_PATH, "../exact_diagonalization/")
+push!(DEPOT_PATH, "../.DEPOT/")
+# https://discourse.julialang.org/t/error-with-modules-sharing-types/37119/2
+
 module MatrixProductStates
     using LinearAlgebra
+
+    using TransverseFieldIsing
+    using QM
 
     export create_random_matrix_set, create_seq_matrix_set
     export fuse_left, fuse_right
@@ -88,7 +95,7 @@ module MatrixProductStates
     end
 
     export MPS
-    export construct_MPS, create_random_state
+    export construct_MPS, create_random_state, create_MPS_from_State
 
     # MPS "Class"
     mutable struct MPS
@@ -188,6 +195,13 @@ module MatrixProductStates
         end
 
         return construct_MPS(arr)
+    end
+
+    function create_MPS_from_State(state :: QM.State) :: Nothing
+        state_tensor = reshape(state.state, state.ds)
+
+        println(size(state_tensor))
+        display(state_tensor)
     end
 
     export make_orthogonal_left!, make_orthogonal_right!

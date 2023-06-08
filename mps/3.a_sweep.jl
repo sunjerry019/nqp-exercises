@@ -1,9 +1,10 @@
 #!/usr/bin/env julia
 
-include("mps.jl")
+push!(LOAD_PATH, "./")
+
 include("testsetskip.jl")
 
-using .MatrixProductStates
+using MatrixProductStates
 using LinearAlgebra
 using Test
 

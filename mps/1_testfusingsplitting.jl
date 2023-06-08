@@ -1,8 +1,8 @@
 #!/usr/bin/env julia
 
-include("mps.jl")
+push!(LOAD_PATH, "./")
 
-using .MatrixProductStates
+using MatrixProductStates
 using Test
 using LinearAlgebra
 
