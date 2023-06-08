@@ -3,7 +3,7 @@
 include("testsetskip.jl")
 
 push!(LOAD_PATH, "./")
-push!(LOAD_PATH, "./exact_diagonalization/")
+push!(LOAD_PATH, "../exact_diagonalization/")
 
 using QM
 using TransverseFieldIsing
