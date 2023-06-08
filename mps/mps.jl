@@ -191,7 +191,6 @@ module MatrixProductStates
     end
 
     export make_orthogonal_left!, make_orthogonal_right!
-    export sweep, sweep!
     function make_orthogonal_left!(state :: MPS, site :: Integer) :: MPS
         # in-place function
 
@@ -236,24 +235,5 @@ module MatrixProductStates
         state.tensor_sets[site]   = _new_MR
 
         return state
-    end
-
-    function sweep(S :: MPS, j :: Integer) :: MPS
-        new_S = construct_MPS(deepcopy(S.tensor_sets))
-        sweep!(new_S, j)
-        return new_S
-    end
-    
-    function sweep!(S :: MPS, j :: Integer) :: MPS
-        # in-place sweep function
-        
-        for i in 1:(j-1)
-            make_orthogonal_left!(S, i)
-        end
-        for i in reverse((j+1):S.L)
-            make_orthogonal_right!(S, i)
-        end
-    
-        return S
     end
 end

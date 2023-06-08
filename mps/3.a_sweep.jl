@@ -7,6 +7,25 @@ using .MatrixProductStates
 using LinearAlgebra
 using Test
 
+function sweep(S :: MPS, j :: Integer) :: MPS
+    new_S = construct_MPS(deepcopy(S.tensor_sets))
+    sweep!(new_S, j)
+    return new_S
+end
+
+function sweep!(S :: MPS, j :: Integer) :: MPS
+    # in-place sweep function
+    
+    for i in 1:(j-1)
+        make_orthogonal_left!(S, i)
+    end
+    for i in reverse((j+1):S.L)
+        make_orthogonal_right!(S, i)
+    end
+
+    return S
+end
+
 @testset "Sweep" verbose=true begin
     # create_random_state(L,d) // Exact Repr
     d = abs(rand(Int, 1)[1] % 5) + 2 # min 2
