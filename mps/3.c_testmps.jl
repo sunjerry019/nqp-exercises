@@ -8,7 +8,6 @@ push!(LOAD_PATH, "../exact_diagonalization/")
 using QM
 using TransverseFieldIsing
 using MatrixProductStates
-using Test
 using LinearAlgebra
 
 S = QM.GetFerromagneticStateX(7)
