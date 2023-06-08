@@ -4,8 +4,8 @@ module MatrixProductStates
     using LinearAlgebra
 
     export create_random_matrix_set, create_seq_matrix_set
-    export fuse_left, fuse_right, fuse_middle
-    export split_left, split_right, split_middle
+    export fuse_left, fuse_right
+    export split_left, split_right
     export collapse_singular_dimension
 
     # INDEXING: A[alpha, beta, k]
@@ -44,14 +44,6 @@ module MatrixProductStates
         return B
     end
 
-    function fuse_middle(A :: Array) :: Array
-        # A[alpha, beta, k]
-        alpha, beta, k = size(A)
-        B = reshape(A, (alpha*beta, k))
-
-        return B
-    end
-
     # SPLITTING
     function split_left(A :: Array, d :: Integer) :: Array
         # A is M(m*d, n)
@@ -75,17 +67,6 @@ module MatrixProductStates
 
         n = nd ÷ d
         B = reshape(A, (m, n, d))
-        return B
-    end
-
-    function split_middle(A :: Array, alpha :: Integer) :: Array
-        # A[alpha, beta, k]
-        alphabeta, k = size(A)
-        if (alphabeta % alpha != 0) throw(DimensionMismatch(string("d invalid: ", nd, " not divisible by " , d))) end
-
-        beta = alphabeta ÷ alpha
-        B = reshape(A, (alpha, beta, k))
-
         return B
     end
 
