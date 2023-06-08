@@ -1,8 +1,8 @@
 #!/usr/bin/env julia
 
-include("mps.jl")
+push!(LOAD_PATH, "./")
 
-using .MatrixProductStates
+using MatrixProductStates
 using LinearAlgebra
 
 function sweep_two_states_LTR(ϕ :: MPS, ϕ_tilde :: MPS) :: Tuple{MPS, MPS, Dict{Integer, Union{Array, UniformScaling}}}
@@ -51,11 +51,11 @@ function sweep_two_states_RTL(ϕ :: MPS, ϕ_tilde :: MPS) :: Tuple{MPS, MPS, Dic
     return ϕ, ϕ_tilde, omega_R
 end
 
-ψ       = create_random_state(5,2)
-ψ_tilde = create_random_state(5,2)
-x, x_tilde, omega_R = sweep_two_states_RTL(ψ, ψ_tilde)
+# ψ       = create_random_state(5,2)
+# ψ_tilde = create_random_state(5,2)
+# x, x_tilde, omega_R = sweep_two_states_RTL(ψ, ψ_tilde)
 
-display(omega_R)
+# display(omega_R)
 
 # Prepare a state with gauge center at j = 0
 # run sweep_two_states_LTR
