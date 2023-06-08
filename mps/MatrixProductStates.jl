@@ -1,7 +1,6 @@
 #!/usr/bin/env julia
 
 push!(LOAD_PATH, "../exact_diagonalization/")
-push!(DEPOT_PATH, "../.DEPOT/")
 # https://discourse.julialang.org/t/error-with-modules-sharing-types/37119/2
 
 module MatrixProductStates
@@ -106,6 +105,8 @@ module MatrixProductStates
     end
 
     function construct_MPS(tensor_sets :: Vector{Array}) :: MPS
+        tensor_sets = deepcopy(tensor_sets)
+
         maxm = 0
         ds = Vector{Integer}()
 
@@ -197,11 +198,44 @@ module MatrixProductStates
         return construct_MPS(arr)
     end
 
-    function create_MPS_from_State(state :: QM.State) :: Nothing
-        state_tensor = reshape(state.state, state.ds)
+    function create_MPS_from_State(state :: QM.State) :: MPS
+        state_tensor = reshape(deepcopy(state.state), state.ds...)
 
-        println(size(state_tensor))
-        display(state_tensor)
+        function partition(tensor :: Array, left :: Integer) :: Tuple{Array, Tuple, Tuple}
+            shape = size(tensor)
+            return reshape(tensor, prod(shape[1:left]), :), shape[1:left], shape[left+1:end]
+        end
+
+        tensor_sets = Vector{Array}()
+
+        for i in 1:state.L
+            state_tensor, o_left_shape, o_right_shape = partition(state_tensor, i == 1 ? 1 : 2)
+            # println(o_left_shape, o_right_shape)
+
+            _fact = svd(state_tensor)
+            #                 sigma x m, m x m   , m x (othersigmas)
+            _U, _Svals, _Vt = _fact.U  , _fact.S , _fact.Vt
+            
+            # tensor[alpha, beta, k]
+            # Worksheet mapping: lower left, lower right, upper
+            # Workheet: A_(m1,m2)^sigma
+
+            # size(_U) = (m1sigma) x m2
+            _A = split_left(_U, o_left_shape[end])
+            # o_left_shape is either (sigma1,) or (m1, sigma2)
+
+            #                 m1  ,m1 x othersigmas
+            _B = Diagonal(_Svals) * _Vt
+            _B = reshape(_B, length(_Svals), o_right_shape...)
+            #                m_i,          , original tensor size (right side)
+
+            push!(tensor_sets, deepcopy(_A))
+            state_tensor     = deepcopy(_B)
+
+            # println("size A and size state", size(_A), size(state_tensor))
+        end
+
+        return construct_MPS(tensor_sets)
     end
 
     export make_orthogonal_left!, make_orthogonal_right!
