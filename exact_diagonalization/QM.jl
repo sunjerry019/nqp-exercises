@@ -32,7 +32,7 @@ module QM
 
     function State(L :: Integer, state :: Vector{Complex{Float64}})
         # Shorthand for a spin 1/2 system
-        ds = fill!(Vector{Integer}(undef, 5), 2)
+        ds = fill!(Vector{Integer}(undef, L), 2)
         return State(L, ds, state)
     end
 
