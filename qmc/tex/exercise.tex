@@ -150,9 +150,9 @@
 %
 On this sheet we realize an efficient, yet conceptionally simple, Monte-Carlo sampling to generate configurations of spin-$1/2$ degrees of freedom, distributed according to the Boltzmann statistics, using \textit{cluster algorithms}.
 %
-We will consider the Ising model on a square lattice in $d=2$ dimensions with $L^2$ lattice sites ($L\in\mathbb N$):
+We will consider the Ising model on a square lattice in $d=2$ dimensions with $L^2$ lattice sites ($L\in\mathbb N$, $J>0$):
 \begin{equation}
-	\hat H = -\sum_{\braket{i,j}} \hat Z_i \hat Z_j
+	\hat H = -J\sum_{\braket{i,j}} \hat Z_i \hat Z_j
 \end{equation}
 and choose as computational basis the Pauli $\hat Z$-operator eigenstates $\ket{\sigma_j}$ with $\sigma_j \in \left\{+1, -1 \right\} \equiv \mathcal S$.
 %
