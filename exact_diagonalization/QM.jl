@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 
-module QuantumMechanics
+module QM
     using Random
     using LinearAlgebra
 
@@ -24,9 +24,16 @@ module QuantumMechanics
     # STATES
     mutable struct State <: HilbertSpace
         L     :: Integer  # Lattice Sites
-        state :: Vector{Complex{Float64}}  
+        ds    :: Vector{<:Integer} # Local degrees of freedom (2 for spin 1/2)
+        state :: Vector{Complex{Float64}}
         # The actual state vector, quantization axis = z
         # We use the tensor product basis
+    end
+
+    function State(L :: Integer, state :: Vector{Complex{Float64}})
+        # Shorthand for a spin 1/2 system
+        ds = fill!(Vector{Integer}(undef, L), 2)
+        return State(L, ds, state)
     end
 
     function *(A :: Number, B :: State) 

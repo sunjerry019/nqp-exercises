@@ -1,9 +1,9 @@
 #!/usr/bin/env julia
 
-module TransverseFieldIsing
-    include("qm.jl")
+push!(LOAD_PATH, "./")
 
-    using .QuantumMechanics
+module TransverseFieldIsing
+    using QM
     using LinearAlgebra
     using Test
 
